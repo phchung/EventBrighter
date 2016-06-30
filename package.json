@@ -23,5 +23,12 @@
     "react-router": "^2.5.1",
     "webpack": "^1.13.1"
   },
+  "engines": {
+    "node": "5.10.1",
+    "npm": "3.8.3"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/webpack"
+  },
   "devDependencies": {}
 }
