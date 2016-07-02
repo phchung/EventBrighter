@@ -3,6 +3,6 @@ root to: 'static_pages#root'
 
   namespace :api, defaults: {format: :json} do
     resource :user, only: [:create]
-    resource :sessions, only: [:create,:destroy]
+    resource :session, only: [:create,:destroy,:show]
   end
 end

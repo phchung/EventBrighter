@@ -1,9 +1,14 @@
-var React = require('react')
+var React = require('react'),
+    Navbar = require('./nav/navbar.jsx')
 
 var App = React.createClass({
+
   render: function(){
     return(
-      <div>{this.props.children}</div>
+      <div>
+        <Navbar />
+        {this.props.children}
+      </div>
     )
   }
 })
