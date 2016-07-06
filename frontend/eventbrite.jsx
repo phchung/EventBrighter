@@ -4,11 +4,11 @@ var React = require('react'),
 var Router = require('react-router').Router,
     Route = require('react-router').Route,
     IndexRoute = require('react-router').IndexRoute,
-    hashHistory = require('react-router').hashHistory
+    hashHistory = require('react-router').hashHistory,
+    Modal = require("react-modal");
 
 var App = require('./components/App'),
     Home = require('./components/Home'),
-    SignUpForm = require('./components/nav/signup_form'),
     LogInForm = require('./components/nav/login_form')
 
 var SessionAction = require('./actions/SessionAction'),
@@ -20,13 +20,14 @@ window.SessionStore = SessionStore
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
-    <Route path="signup" component={SignUpForm}/>
+    <Route path="signup" component={LogInForm}/>
     <Route path="login" component={LogInForm}/>
   </Route>
 )
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    Modal.setAppElement(document.body)
     ReactDom.render(
       <Router history={hashHistory}>{routes}</Router>,
       document.getElementById('root')

@@ -11,7 +11,7 @@ SessionStore.__onDispatch = function(payload){
 
   switch(payload.actionType){
     case SessionConstants.LOGIN:
-    _login(payload.user)
+    _login(payload.currentUser)
     this.__emitChange()
     break;
 

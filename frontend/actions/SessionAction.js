@@ -1,11 +1,13 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
     SessionConstants = require('../constants/session_constants'),
-    SessionApiUtil = require('../util/SessionApiUtil')
+    SessionApiUtil = require('../util/SessionApiUtil'),
+    ErrorAction = require('./ErrorAction')
+    hashHistory = require('react-router').hashHistory
 
 var SessionAction = {
 
   logIn: function(user){
-    SessionApiUtil.logIn(user,SessionAction.receiveCurrentUser)
+    SessionApiUtil.logIn(user,SessionAction.receiveCurrentUser,ErrorAction.setErrors)
   },
 
   logOut: function(){
@@ -13,7 +15,7 @@ var SessionAction = {
   },
 
   signUp: function(user){
-    SessionApiUtil.signUp(user,SessionAction.receiveCurrentUser)
+    SessionApiUtil.signUp(user,SessionAction.receiveCurrentUser,ErrorAction.setErrors)
   },
 
   receiveCurrentUser: function(currentUser){
@@ -27,6 +29,7 @@ var SessionAction = {
     Dispatcher.dispatch({
       actionType: SessionConstants.LOGOUT
     })
+    hashHistory.push('/')
   }
 }
 

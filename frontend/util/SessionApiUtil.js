@@ -1,7 +1,7 @@
 
 
 var SessionApiUtil = {
-  logIn(user,success){
+  logIn(user,success,error){
     $.ajax({
       url: 'api/session',
       type: 'POST',
@@ -9,6 +9,8 @@ var SessionApiUtil = {
       success,
       error(xhr){
         errors = xhr.responseJSON
+
+        error("login",errors)
       }
     })
   },
@@ -24,14 +26,16 @@ var SessionApiUtil = {
     })
   },
 
-  signUp(user,success){
+  signUp(user,success,error){
     $.ajax({
       url: 'api/user',
       type: 'POST',
       data: {user},
       success,
-      error:function(){
-        console.log("SessionApiUtil SIGNUP ERROR")
+      error(xhr){
+        errors = xhr.responseJSON
+
+        error("signup",errors)
       }
     })
   },

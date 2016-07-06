@@ -1,0 +1,37 @@
+.close{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: -1;
+  // border-radius: 50%;
+}
+
+.login-form{
+  margin: center;
+  text-align: center;
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: normal;
+}
+
+.login-box{
+  width: 250px;
+  height: 40px;
+  border-radius: 2px;
+  margin: 10px;
+  font-size: 16px;
+  border: 1px #D2D6DF solid;
+  padding-left: 10px;
+}
+
+.login-box.button{
+  background-color: #2BBA34;
+  color: white;
+}
+
+.errors{
+  color: red;
+  font-size: 11px;
+  margin-left: 0px
+  // width: 250px;
+  // background-color: solid red;
+}
