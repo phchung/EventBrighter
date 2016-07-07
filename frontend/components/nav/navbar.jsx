@@ -45,13 +45,13 @@ var Navbar = React.createClass({
     modalStyles.content.top = '30%'
   },
 
-  __onTitleClick: function(){
-    hashHistory.push("/")
-  },
-
   __handleClick: function(bool){
     this.setState({login: bool})
     this.openModal()
+  },
+
+  __titleClick: function(){
+    hashHistory.push("/")
   },
 
   handleLogout: function(e){
@@ -67,28 +67,29 @@ var Navbar = React.createClass({
 
     if(SessionStore.isUserLoggedIn()){
       return(
-        <hgroup className = 'header-group'>
-          <header onClick={this.onTitleClick}
-            className="header-title"><h1>Eventbrite</h1>
-          </header>
-          <nav className="nav-links">
-            <a className="header-link" onClick={this.handleLogout}
-               type="submit">Logout</a>
-            <a className="header-link">{SessionStore.currentUser().username}</a>
-         </nav>
-        </hgroup>
+        <header className='nav-header'>
+            <div onClick={this.__titleClick}className="title">
+              Eventbrite
+            </div>
+            <div className="header-list">
+              <a className="header-link" onClick={this.handleLogout}
+                 type="submit">Logout</a>
+              <a className="header-link">{SessionStore.currentUser().username}</a>
+            </div>
+       </header>
       )
     } else{
       return(
-        <div className = 'header-group'>
-          <header className="header-title"><h1>Eventbrite</h1>
-          </header>
-          <nav className="nav-links">
-            <a className="header-link"
-              onClick={this.__handleClick.bind(this, true)}>Login</a>
-            <a className="header-link"
-              onClick={this.__handleClick.bind(this, false)}>SignUp</a>
-          </nav>
+        <header className = 'nav-header'>
+            <div className="title" onClick={this.__titleClick}>
+              Eventbrite
+            </div>
+            <div className="header-list">
+              <a className="header-link"
+                onClick={this.__handleClick.bind(this, true)}>Login</a>
+              <a className="header-link"
+                onClick={this.__handleClick.bind(this, false)}>SignUp</a>
+            </div>
             <Modal
               isOpen={this.state.modalOpen}
               onRequestClose={this.closeModal}
@@ -99,7 +100,7 @@ var Navbar = React.createClass({
                 onClick={this.closeModal}>X</button>
               {component}
             </Modal>
-        </div>
+        </header>
       )
     }
   },

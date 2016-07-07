@@ -8,8 +8,9 @@ var Router = require('react-router').Router,
     Modal = require("react-modal");
 
 var App = require('./components/App'),
-    Home = require('./components/Home'),
-    LogInForm = require('./components/nav/login_form')
+    Home = require('./components/home/Home'),
+    LogInForm = require('./components/nav/login_form'),
+    Event = require('./components/event/event')
 
 var SessionAction = require('./actions/SessionAction'),
     SessionStore = require('./stores/session')
@@ -20,6 +21,7 @@ window.SessionStore = SessionStore
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
+    <Route path="events" component={Event} />
     <Route path="signup" component={LogInForm}/>
     <Route path="login" component={LogInForm}/>
   </Route>
