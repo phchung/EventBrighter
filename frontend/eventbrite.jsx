@@ -10,7 +10,8 @@ var Router = require('react-router').Router,
 var App = require('./components/App'),
     Home = require('./components/home/Home'),
     LogInForm = require('./components/nav/login_form'),
-    Event = require('./components/event/event')
+    Event = require('./components/event/event'),
+    EventForm = require('./components/event/event_form')
 
 var SessionAction = require('./actions/SessionAction'),
     SessionStore = require('./stores/session')
@@ -24,6 +25,7 @@ var routes = (
     <Route path="events" component={Event} />
     <Route path="signup" component={LogInForm}/>
     <Route path="login" component={LogInForm}/>
+    <Route path="create" component={EventForm}/>
   </Route>
 )
 

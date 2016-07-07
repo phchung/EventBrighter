@@ -1,8 +1,8 @@
 
 
 .carousel {
-  height: 450px;
-  margin-bottom: 60px;
+  height: 583px;
+  // margin-bottom: 60px;
   overflow: hidden;
   text-align: center;
   width: 100%;
@@ -14,7 +14,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    text-align: center;
 }
 
 .carousel-inner > .item {
@@ -35,5 +34,32 @@ text-align: center;
 }
 
 .carouse-caption{
-  bottom: 450px;
+  font-family: "Benton Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+}
+
+.carousel-caption h1{
+  font-size: 45px;
+  letter-spacing: 1px;
+}
+
+.carousel-cation p{
+  padding: 5px;
+  font-size: 30px;
+  letter-spacing: 0.5px;
+}
+
+.home-search-button a{
+  padding: 23px;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  font-family: "Benton Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+}
+
+.home-search-button{
+  margin: 5px;
+  background-color: #39A7CC;
+  border-radius: 2.5px;
+  border-style: solid;
 }
