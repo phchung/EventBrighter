@@ -12,8 +12,8 @@
   cursor: pointer;
   color: #ff9900;
   border-right: 1px solid #D2D6DF;
-  font-size: 20px;
-  font-weight: bold;
+  // font-size: 20px;
+  font-weight: 900;
 }
 
 .header-list a{
@@ -29,6 +29,7 @@
 .header-list a:hover{
   background-color: #D8E3E6;
 }
+
 .main-div{
   display: flex;
   flex-direction: column;

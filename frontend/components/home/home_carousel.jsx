@@ -29,9 +29,9 @@ var HomeCarousel = React.createClass({
                 <div className="carousel-caption">
                   <h1>Sell Tickets</h1>
                   <p>Promote, manage, and host successful events</p>
-                  <button onClick={this.__handleClick} className="home-search-button">
-                    <a>Create Event</a>
-                    </button>
+                  <button  onClick={this.__handleClick} type="button"
+                    className="btn btn-info home-create"><span>Create Event</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -42,8 +42,8 @@ var HomeCarousel = React.createClass({
                 <div className="carousel-caption">
                   <h1>Sell Tickets!</h1>
                   <p>Promote, manage, and host successful events</p>
-                  <button onClick={this.__handleClick} className="home-search-button">
-                    <a>Create Event</a>
+                  <button  onClick={this.__handleClick} type="button"
+                    className="btn btn-info home-create"><span>Create Event</span>
                   </button>
                 </div>
               </div>
@@ -55,8 +55,8 @@ var HomeCarousel = React.createClass({
                 <div className="carousel-caption">
                   <h1>Sell Tickets!</h1>
                   <p>Promote, manage, and host successful events</p>
-                  <button onClick={this.__handleClick} className="home-search-button">
-                    <a>Create Event</a>
+                  <button  onClick={this.__handleClick} type="button"
+                    className="btn btn-info home-create"><span>Create Event</span>
                   </button>
                 </div>
               </div>
@@ -68,8 +68,8 @@ var HomeCarousel = React.createClass({
                 <div className="carousel-caption">
                   <h1>Sell Tickets!</h1>
                   <p>Promote, manage, and host successful events</p>
-                  <button onClick={this.__handleClick} className="home-search-button">
-                    <a>Search</a>
+                  <button  onClick={this.__handleClick} type="button"
+                    className="btn btn-info home-create"><span>Create Event</span>
                   </button>
                 </div>
               </div>
@@ -81,8 +81,8 @@ var HomeCarousel = React.createClass({
                 <div className="carousel-caption">
                   <h1>Sell Tickets!</h1>
                   <p>Promote, manage, and host successful events</p>
-                  <button onClick={this.__handleClick} className="home-search-button">
-                    <a>Create Event</a>
+                  <button  onClick={this.__handleClick} type="button"
+                    className="btn btn-info home-create"><span>Create Event</span>
                   </button>
                 </div>
               </div>

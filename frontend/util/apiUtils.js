@@ -1,4 +1,4 @@
-var ServerActions = require('../actions/ServerActions')
+var ServerActions = require('../actions/ServerAction')
 
 var ApiUtils = {
   createEvent: function(event){
@@ -6,7 +6,7 @@ var ApiUtils = {
       url: '/api/events',
       method: 'POST',
       dataType: 'json',
-      data: data,
+      data: event,
       success: function(event){
         ServerActions.createEvents(event)
       }

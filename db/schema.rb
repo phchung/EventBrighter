@@ -17,17 +17,19 @@ ActiveRecord::Schema.define(version: 20160707042654) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string  "title",       null: false
-    t.string  "location",    null: false
-    t.string  "category",    null: false
-    t.string  "description", null: false
-    t.string  "picture_url", null: false
-    t.integer "price",       null: false
-    t.string  "start_date",  null: false
-    t.string  "end_date",    null: false
-    t.string  "start_time",  null: false
-    t.string  "end_time",    null: false
-    t.integer "user_id",     null: false
+    t.string   "title",       null: false
+    t.string   "location",    null: false
+    t.string   "category",    null: false
+    t.string   "description", null: false
+    t.string   "picture_url", null: false
+    t.integer  "price",       null: false
+    t.date     "start_date",  null: false
+    t.date     "end_date",    null: false
+    t.time     "start_time",  null: false
+    t.time     "end_time",    null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
