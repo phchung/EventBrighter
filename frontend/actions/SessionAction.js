@@ -23,6 +23,7 @@ var SessionAction = {
       actionType: SessionConstants.LOGIN,
       currentUser: currentUser
     })
+    hashHistory.push('/')
   },
 
   removeCurrentUser: function(){

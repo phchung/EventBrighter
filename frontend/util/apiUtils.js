@@ -1,7 +1,7 @@
 var ServerActions = require('../actions/ServerAction')
 
 var ApiUtils = {
-  createEvent: function(event){
+  createEvent: function(event,error){
     $.ajax({
       url: '/api/events',
       method: 'POST',
@@ -9,6 +9,10 @@ var ApiUtils = {
       data: event,
       success: function(event){
         ServerActions.createEvents(event)
+      },
+      error(xhr){
+        errors = xhr.responseJSON
+        error("Create Event",errors)
       }
     })
   },

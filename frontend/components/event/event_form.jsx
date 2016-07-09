@@ -1,5 +1,6 @@
 var React = require('react'),
     SessionStore = require('../../stores/session'),
+    ErrorStore = require('../../stores/error'),
     ClientAction = require('../../actions/ClientAction'),
     hashHistory = require('react-router').hashHistory
 
@@ -48,6 +49,7 @@ var EventForm = React.createClass({
 
   componentDidMount: function(){
     this.sessionStore = SessionStore.addListener(this.addUser)
+    this.errorStore = ErrorStore.addListener(this.forceUpdate.bind(this))
     this.addCloudListener()
   },
 
@@ -57,11 +59,27 @@ var EventForm = React.createClass({
 
   componentWillUnmount: function(){
     this.sessionStore.remove()
+    this.errorStore.remove()
   },
 
   componentWillReceiveProps: function(){
     this.setState({user_id: _currentUser.id})
   },
+
+  fieldErrors: function(property){
+    if(!_errors[0]){return}
+
+     _errors.map(function(error,i){
+      if(error.includes(property)){
+        if(property === "date" || property === "time"){
+           message = "PLEASE INPUT A VALID DATE/TIME"
+        } else {
+           message = error
+        }
+      }})
+    return <div className="event-error">{message}</div>
+  },
+
 
   handleSubmit: function(e){
     e.preventDefault()
@@ -117,6 +135,7 @@ var EventForm = React.createClass({
             className="form-control"
             placeholder="Give it a short distinct name"
             onChange={this.update("title")}/>
+          {this.fieldErrors('Title')}
           <label className="location">Location</label>
           <input
             type="text"
@@ -124,6 +143,7 @@ var EventForm = React.createClass({
             className="form-control"
             placeholder="Specify where is it held"
             onChange={this.update("location")}/>
+          {this.fieldErrors('Location')}
           <div className="startend-datetime group">
             <div className="start-datetime">
               <div className="start-label">
@@ -162,12 +182,14 @@ var EventForm = React.createClass({
           </div>
           <a className="picture_url" href="#" id="upload_widget_opener">Event Image</a>
           {image}
+          {this.fieldErrors('Picture')}
           <label className="description">Event Description</label>
           <textarea
             class="form-control"
             value={this.state.description}
             rows="7"
             onChange={this.update("description")}/>
+          {this.fieldErrors('Description')}
           <div className="category-price group">
             <div className="category">
               <div className="category-label">
@@ -182,6 +204,7 @@ var EventForm = React.createClass({
                   <option>Rap</option>
                 </select>
               </div>
+              {this.fieldErrors('Category')}
             </div>
             <div className="price">
               <div className="price-label">
@@ -193,6 +216,7 @@ var EventForm = React.createClass({
                 className="input-lrg"
                 value={this.state.price}
                 onChange={this.update("price")}/>
+              {this.fieldErrors('Price')}
             </div>
           </div>
           <a id="event-live-btn" className="btn btn-primary bottom-btn"

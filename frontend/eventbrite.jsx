@@ -19,19 +19,26 @@ var SessionAction = require('./actions/SessionAction'),
 window.SessionAction = SessionAction
 window.SessionStore = SessionStore
 
+function _ensureLoggedIn(nextstate,replace){
+  if(!SessionStore.isUserLoggedIn()){replace('/login');}
+}
+
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
     <Route path="events" component={Event} />
     <Route path="signup" component={LogInForm}/>
     <Route path="login" component={LogInForm}/>
-    <Route path="create" component={EventForm}/>
+    <Route path="create" component={EventForm} onEnter={_ensureLoggedIn}/>
   </Route>
 )
 
-
 document.addEventListener("DOMContentLoaded", function () {
     Modal.setAppElement(document.body)
+
+    if (window.currentUser) {
+    SessionAction.receiveCurrentUser(window.currentUser);
+  }
     ReactDom.render(
       <Router history={hashHistory}>{routes}</Router>,
       document.getElementById('root')

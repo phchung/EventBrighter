@@ -69,7 +69,7 @@ var Navbar = React.createClass({
       return(
         <header className='nav-header'>
             <div onClick={this.__titleClick}className="title">
-              Eventbrite
+              NotEventbrite
             </div>
             <div className="header-list">
               <a className="header-link" onClick={this.handleLogout}
@@ -82,7 +82,7 @@ var Navbar = React.createClass({
       return(
         <header className = 'nav-header'>
             <div className="title" onClick={this.__titleClick}>
-              Eventbrite
+              NotEventbrite
             </div>
             <div className="header-list">
               <a className="header-link"

@@ -40,7 +40,7 @@ var LogInForm = React.createClass({
   handleSubmit: function(e){
     e.preventDefault()
     const user = {username:this.state.username,password:this.state.password}
-    if(this.props.form ==="login"){
+    if(this.props.form ==="signUp"){
       SessionAction.logIn(user)
     } else{
       SessionAction.signUp(user)
@@ -49,7 +49,11 @@ var LogInForm = React.createClass({
   },
 
   formType: function(){
-  return this.props.form[0].toUpperCase() + this.props.form.slice(1)
+    if(this.props.form){
+      return this.props.form[0].toUpperCase() + this.props.form.slice(1)
+    } else{
+      return "login"
+    }
   },
 
   fieldError: function(field){
@@ -74,9 +78,9 @@ var LogInForm = React.createClass({
     return(
       <form className="login-form" onSubmit={this.handleSubmit}>
         <h1 className="login-text">{this.formType()}</h1>
-        {this.fieldError('base')}
-        {this.fieldError('password')}
-        {this.fieldError('username')}
+          {this.fieldError('base')}
+          {this.fieldError('password')}
+          {this.fieldError('username')}
         <input type="text" className="login-box"
           value={this.state.username}
           placeholder='Username'

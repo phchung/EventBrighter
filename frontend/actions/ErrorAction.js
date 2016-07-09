@@ -10,6 +10,12 @@ var ErrorAction = {
       error: error,
       form: form
     })
+  },
+
+  clearErrors: function(){
+    Dispatcher.dispatch({
+      actionType: ErrorConstants.CLEAR_ERRORS,
+    })
   }
 }
 
