@@ -1,7 +1,7 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
     SessionConstants = require('../constants/session_constants'),
     SessionApiUtil = require('../util/SessionApiUtil'),
-    ErrorAction = require('./ErrorAction')
+    ErrorAction = require('./ErrorAction'),
     hashHistory = require('react-router').hashHistory
 
 var SessionAction = {

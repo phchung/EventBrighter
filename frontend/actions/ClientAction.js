@@ -9,6 +9,14 @@ var ClientAction = {
 
   fetchEvents: function(data){
     ApiUtil.fetchEvents(data)
+  },
+
+  createTicket: function(data){
+    ApiUtil.createTicket(data)
+  },
+
+  fetchTickets: function(data){
+    ApiUtil.fetchTickets(data)
   }
 }
 

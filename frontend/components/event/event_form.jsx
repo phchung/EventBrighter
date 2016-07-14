@@ -1,6 +1,7 @@
 var React = require('react'),
     SessionStore = require('../../stores/session'),
     ErrorStore = require('../../stores/error'),
+    ErrorAction = require('../../actions/ErrorAction'),
     ClientAction = require('../../actions/ClientAction'),
     hashHistory = require('react-router').hashHistory
 
@@ -50,6 +51,7 @@ var EventForm = React.createClass({
   componentDidMount: function(){
     this.sessionStore = SessionStore.addListener(this.addUser)
     this.errorStore = ErrorStore.addListener(this.forceUpdate.bind(this))
+    ErrorAction.clearErrors()
     this.addCloudListener()
   },
 
@@ -85,7 +87,7 @@ var EventForm = React.createClass({
     e.preventDefault()
     ClientAction.createEvent({event:Object.assign({},this.state)})
     this.setState(this.blankattr)
-    console.log('here')
+    
   },
 
   handleCancel: function(){
@@ -102,7 +104,8 @@ var EventForm = React.createClass({
     if(this.state.picture_url){
       image = <div className="image-container not-active">
               <img className="inner-image " src={this.state.picture_url}/>
-            </div>
+              </div>
+      trashcan = <span className="glyphicon glyphicon-trash">Remove</span>
     } else{
       image = <div id="upload_widget_opener" className="image-container">
                 <div className="inner-image-container">
@@ -113,6 +116,7 @@ var EventForm = React.createClass({
                   </div>
                 </div>
               </div>
+      trashcan = <div></div>
     }
     return(
       <div className="event-page">
@@ -182,6 +186,7 @@ var EventForm = React.createClass({
           </div>
           <a className="picture_url" href="#" id="upload_widget_opener">Event Image</a>
           {image}
+          {trashcan}
           {this.fieldErrors('Picture')}
           <label className="description">Event Description</label>
           <textarea

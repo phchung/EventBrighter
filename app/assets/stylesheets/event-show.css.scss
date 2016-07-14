@@ -1,0 +1,63 @@
+.event-show{
+  margin: 100px 230px;
+}
+
+
+.listing-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.listing-header{
+  letter-spacing: .5px;
+  padding-bottom: 10px;
+}
+
+.listing-title{
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 28px;
+}
+
+.listing-group{
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 21px;
+}
+
+.listing-panel{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  border: 1px solid #D2D6DF;
+  border-radius: 5px;
+  // border-width: 0 0 1px 0;
+}
+
+.bookmark{
+  color: #00a8f2;
+  font-size: 40px;
+  margin: 5px;
+}
+
+.tickets{
+  color: white;
+  background-color: #00cc52;
+  margin-right: 15px;
+}
+
+.tickets > span{
+  letter-spacing: .5px;
+  font-size: 20px;
+}
+
+#event-show-picture{
+  height: 200px;
+  width: 320px;
+}
+
+.listing-detail{
+  display: flex;
+  justify-content: space-between;
+}

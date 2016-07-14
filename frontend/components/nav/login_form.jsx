@@ -40,10 +40,10 @@ var LogInForm = React.createClass({
   handleSubmit: function(e){
     e.preventDefault()
     const user = {username:this.state.username,password:this.state.password}
-    if(this.props.form ==="signUp"){
-      SessionAction.logIn(user)
-    } else{
+    if(this.props.form ==="signup"){
       SessionAction.signUp(user)
+    } else{
+      SessionAction.logIn(user)
     }
     this.setState(this.blankAttr)
   },

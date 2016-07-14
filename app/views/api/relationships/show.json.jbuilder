@@ -1,1 +1,1 @@
-json.extract! relationship, :id,:show_id,:purchaser_id
+json.extract! @relationship, :id, :show_id, :purchaser_id

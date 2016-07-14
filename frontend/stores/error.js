@@ -11,11 +11,22 @@ _setErrors = function(payload){
   _errors = payload.error
   _form = payload.form
 }
+
+_clearErrors = function(){
+  _errors ={}
+  _form =""
+}
 ErrorStore.__onDispatch = function(payload){
   switch(payload.actionType){
     case ErrorConstants.SET_ERROR:
     _setErrors(payload)
     this.__emitChange()
+    break;
+
+    case ErrorConstants.CLEAR_ERROR:
+    _clearErrors()
+    this.__emitChange()
+    break;
   }
 }
 

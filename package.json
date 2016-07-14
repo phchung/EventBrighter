@@ -23,6 +23,7 @@
     "react-dom": "^15.1.0",
     "react-modal": "^1.4.0",
     "react-router": "^2.5.1",
+    "react-tooltip": "^3.0.9",
     "webpack": "^1.13.1"
   },
   "engines": {

@@ -1,8 +1,15 @@
 class Api::RelationshipsController < ApplicationController
 
+  def index
+    @relationships = Relationship.all
+    render 'api/relationships/index'
+  end
+
   def create
     @relationship = Relationship.create(relationship_params)
-    render :show if @relationship.save
+    if @relationship.save
+      render '/api/relationships/show'
+    end
   end
 
   def destroy

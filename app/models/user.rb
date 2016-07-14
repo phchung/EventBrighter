@@ -5,8 +5,11 @@ validates :password, length: {minimum: 6, allow_nil: true}
 validates :username, uniqueness: true
 
 has_many :created_events, foreign_key: "user_id", class_name: "Event"
-has_many :relationships
-has_many :shows, through: :relationships, source: :show
+has_many :bookmarks, through: :bookmark, source: :bookmark
+has_many :shows, dependent: :destroy,
+  primary_key: :id,
+  foreign_key: :purchaser_id,
+  class_name: 'Relationship'
 
 attr_reader :password
 after_initialize :ensure_session_token

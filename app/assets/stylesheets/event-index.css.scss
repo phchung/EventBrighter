@@ -1,0 +1,82 @@
+.event-index-item{
+  height: 300px;
+  width: 330px;
+  overflow: auto;
+  font-family: "Benton Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  border: 1px solid #DFE5EB;
+  margin: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  background-color: white;
+}
+
+#home-event-index-picture{
+  height: 160px;
+}
+
+.index-title{
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 1px;
+}
+
+.index-detail{
+  padding: 8px;
+  margin: 15px 0px 0px 4px;
+}
+
+.index-title{
+  font-size: 15px;
+  line-height: 19px;
+  font-weight: 600;
+}
+
+.index-location{
+  color: #666A73;
+  font-size: 12px;
+}
+
+.index-footer{
+  position: absolute;
+  bottom: 0;
+  border-top: 1px solid #DFE5EB;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer{
+  padding: 10px 10px;
+  letter-spacing: .5px;
+  line-height: 15px;
+}
+
+.glyphicon-tag{
+  font-size: 17px;
+  border-left: 1px solid #DFE5EB;
+}
+
+.poster-display{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: auto;
+}
+
+.poster-details{
+  width: 80%;
+  margin: auto;
+}
+.poster-title{
+  margin-left: 20px;
+  padding-top: 15px;
+  font-size: 18px;
+}
+
+.homepage{
+  background-color: #F8F8FA;
+}

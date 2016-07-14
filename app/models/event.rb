@@ -4,7 +4,12 @@ validates :title,:location,:category,:description,:picture_url,:price,:start_dat
           :end_date,:start_time,:end_time,:user_id, presence: true
 
 belongs_to :user
-has_many :relationships
-has_many :purchasers, through: :relationships, source: :purchaser
 
+has_many :purchasers, dependent: :destroy,
+  primary_key: :id,
+  foreign_key: :purchaser_id,
+  class_name: 'Relationship'
+
+has_many :bookmark
+has_many :followers, through: :bookmark, source: :follower
 end

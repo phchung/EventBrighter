@@ -8,7 +8,7 @@ var ApiUtils = {
       dataType: 'json',
       data: event,
       success: function(event){
-        ServerActions.createEvents(event)
+        ServerActions.createEvent(event)
       },
       error(xhr){
         errors = xhr.responseJSON
@@ -25,6 +25,30 @@ var ApiUtils = {
       data: data,
       success: function(events){
         ServerActions.fetchEvents(events)
+      }
+    })
+  },
+
+  createTicket: function(data){
+    $.ajax({
+      url: '/api/relationships',
+      method: 'POST',
+      dataType: 'json',
+      data: data,
+      success: function(ticket){
+        ServerActions.createTicket(ticket)
+      }
+    })
+  },
+
+  fetchTickets: function(data){
+    $.ajax({
+      url: '/api/relationships',
+      method: 'GET',
+      dataType: 'json',
+      data: data,
+      success: function(tickets){
+        ServerActions.fetchTickets(tickets)
       }
     })
   }

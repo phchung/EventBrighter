@@ -1,0 +1,6 @@
+TicketConstants = {
+  ATTENDENT_RECEIVED: "ATTENDENT RECEIVED",
+  ATTENDENTS_RECEIVED: "ATTENDENTS RECEIVED"
+}
+
+module.exports = TicketConstants
