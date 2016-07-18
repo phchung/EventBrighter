@@ -89,11 +89,11 @@ var EventShow = React.createClass({
             <div className="listing-location listing-group">{this.state.event.location}</div>
           </div>
           <div className="listing-panel">
-            <span className="glyphicon glyphicon-bookmark bookmark"></span>
+            <span className="glyphicon glyphicon-tag bookmark" ></span>
             {attending}
           </div>
           <div className="listing-detail">
-            <div>DESCRIPTION</div>
+            <div>{this.state.event.description}</div>
             <div><img id="event-show-picture"
               src={this.state.event.picture_url}/></div>
         </div>

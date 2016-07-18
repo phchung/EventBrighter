@@ -72,9 +72,18 @@ var Navbar = React.createClass({
               NotEventbrite
             </div>
             <div className="header-list">
-              <a className="header-link" onClick={this.handleLogout}
-                 type="submit">Logout</a>
-              <a className="header-link">{SessionStore.currentUser().username}</a>
+              <div><a className="header-link" onClick={this.handleLogout}
+                     type="submit">Logout</a></div>
+              <div className="menu-user">
+                 <a className="header-link">{SessionStore.currentUser().username}</a>
+                 <div className="menu-right">
+                   <ul className="header-notifications">
+                     <li>Tickets</li>
+                     <li>Saved</li>
+                     <li>Manage Events</li>
+                   </ul>
+                 </div>
+               </div>
             </div>
        </header>
       )
@@ -84,7 +93,7 @@ var Navbar = React.createClass({
             <div className="title" onClick={this.__titleClick}>
               NotEventbrite
             </div>
-            <div className="header-list">
+            <div className="header-link-login">
               <a className="header-link"
                 onClick={this.__handleClick.bind(this, true)}>Login</a>
               <a className="header-link"

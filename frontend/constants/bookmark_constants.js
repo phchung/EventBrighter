@@ -1,0 +1,7 @@
+BookmarkConstants = {
+  BOOKMARK_RECEIVED: "BOOKMARK RECEIVED",
+  BOOKMARKS_RECEIVED: "BOOKMARKS RECEIVED",
+  REMOVE_BOOKMARK: "REMOVE BOOKMARK"
+}
+
+module.exports = BookmarkConstants

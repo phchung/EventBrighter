@@ -10,6 +10,9 @@ has_many :purchasers, dependent: :destroy,
   foreign_key: :purchaser_id,
   class_name: 'Relationship'
 
-has_many :bookmark
-has_many :followers, through: :bookmark, source: :follower
+has_many :followers, dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :bookmark_id,
+    class_name: 'Bookmark'
+
 end

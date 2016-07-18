@@ -1,17 +1,43 @@
 var React = require('react'),
-    hashHistory = require('react-router').hashHistory
+    hashHistory = require('react-router').hashHistory,
+    BookmarkStore  = require('../../stores/bookmark'),
+    ApiUtil = require('../../util/apiUtils'),
+    SessionStore = require('../../stores/session')
 
 var EventIndexItem = React.createClass({
 
   getInitialState: function(){
     return({
       start_time:"",
-      parsedDate:""
+      parsedDate:"",
+      bookmark: false
     })
   },
 
   componentDidMount: function(){
+    this.bookmarkListener = BookmarkStore.addListener(this._bookmarkChanged)
     this._setDatetime()
+    ApiUtil.fetchBookmarks()
+  },
+
+  componentWillUnmount: function(){
+    this.bookmarkListener.remove()
+  },
+
+  _bookmarkChanged: function(){
+    const eventId = this.props.event.id
+    this.setState({bookmark: BookmarkStore.includes(eventId)})
+  },
+
+  _handleBookmark: function(){
+    const eventId = this.props.event.id
+    const currentUser = SessionStore.currentUser().id
+    const bookmark = Object.assign({},{bookmark_id: eventId, user_id: currentUser})
+    if(this.state.bookmark){
+      ApiUtil.deleteBookmark(bookmark)
+    } else {
+      ApiUtil.createBookmark(bookmark)
+    }
   },
 
   _handleClick: function(){
@@ -42,13 +68,22 @@ var EventIndexItem = React.createClass({
 
   render: function(){
     const event = this.props.event
+    let bookmark
+    if(this.state.bookmark){
+      bookmark = <span onClick={this._handleBookmark}
+                  className="glyphicon glyphicon-tag footer marked" ></span>
+    } else {
+      bookmark = <span onClick={this._handleBookmark}
+                  className="glyphicon glyphicon-tag footer" ></span>
+    }
+
     return(
       <div className="event-index-item">
         <img id="home-event-index-picture"onClick={this._handleClick}
           src={event.picture_url}/>
         <div className="index-detail" onClick={this._handleClick}>
           <div className="index-datetime">
-            {this.state.parsedDate}{this.state.start_time}
+            {this.state.parsedDate} {this.state.start_time}
           </div>
           <div className="index-title">
             {event.title}
@@ -59,7 +94,7 @@ var EventIndexItem = React.createClass({
         </div>
         <div className="index-footer">
           <div className="index-category footer">#{event.category}</div>
-          <span className="glyphicon glyphicon-tag footer" onClick={console.log('hi')}></span>
+          {bookmark}
         </div>
       </div>
     )

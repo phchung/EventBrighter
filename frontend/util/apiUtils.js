@@ -51,6 +51,41 @@ var ApiUtils = {
         ServerActions.fetchTickets(tickets)
       }
     })
+  },
+
+  createBookmark: function(bookmark){
+    $.ajax({
+      url: '/api/bookmarks',
+      method: 'POST',
+      dataType: 'json',
+      data: {bookmark},
+      success: function(bookmark){
+        ServerActions.createBookmark(bookmark)
+      }
+    })
+  },
+
+  fetchBookmarks: function(){
+    $.ajax({
+      url: '/api/bookmarks',
+      method: 'GET',
+      dataType: 'json',
+      success: function(bookmarks){
+        ServerActions.fetchBookmarks(bookmarks)
+      }
+    })
+  },
+
+  deleteBookmark: function(bookmark){
+    $.ajax({
+      url: '/api/bookmarks/' + bookmark.bookmark_id,
+      method: "DELETE",
+      data: {bookmark},
+      dataType: 'json',
+      success: function(bookmark){
+        ServerActions.removeBookmark(bookmark)
+      }
+    })
   }
 }
 

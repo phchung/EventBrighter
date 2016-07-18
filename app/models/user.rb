@@ -5,7 +5,12 @@ validates :password, length: {minimum: 6, allow_nil: true}
 validates :username, uniqueness: true
 
 has_many :created_events, foreign_key: "user_id", class_name: "Event"
-has_many :bookmarks, through: :bookmark, source: :bookmark
+
+has_many :bookmarks, dependent: :destroy,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: 'Bookmark'
+
 has_many :shows, dependent: :destroy,
   primary_key: :id,
   foreign_key: :purchaser_id,

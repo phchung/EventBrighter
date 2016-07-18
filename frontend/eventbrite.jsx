@@ -14,7 +14,8 @@ var App = require('./components/App'),
     EventForm = require('./components/event/event_form')
 
 var SessionAction = require('./actions/SessionAction'),
-    SessionStore = require('./stores/session')
+    SessionStore = require('./stores/session'),
+    ClientAction = require('./actions/ClientAction')
 
 window.SessionAction = SessionAction
 window.SessionStore = SessionStore
@@ -44,3 +45,5 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('root')
     );
   });
+
+window.ClientAction = ClientAction

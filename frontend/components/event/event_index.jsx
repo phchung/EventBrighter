@@ -8,8 +8,8 @@ var EventIndex = React.createClass({
     const events = this.props.events
     return(
       <div className="poster-details">
-      <div className="poster-title">Events For You</div>
-      <div className="poster-display">
+        <div className="poster-title">Events For You</div>
+        <div className="poster-display">
         {
           events.map(function(event,i){
             return(
@@ -17,7 +17,7 @@ var EventIndex = React.createClass({
             )
           })
         }
-      </div>
+        </div>
       </div>
     )
   }

@@ -17,6 +17,14 @@ var ClientAction = {
 
   fetchTickets: function(data){
     ApiUtil.fetchTickets(data)
+  },
+
+  createBookmark: function(data){
+    ApiUtil.createBookmark(data)
+  },
+
+  fetchBookmarks: function(data){
+    ApiUtil.fetchBookmarks(data)
   }
 }
 

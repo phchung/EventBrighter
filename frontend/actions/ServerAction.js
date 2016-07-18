@@ -1,5 +1,6 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
     EventConstants = require('../constants/event_constants'),
+    BookmarkConstants = require('../constants/bookmark_constants'),
     TicketConstants = require('../constants/ticket_constants'),
     hashHistory = require('react-router').hashHistory
 
@@ -32,6 +33,27 @@ var ServerActions = {
     Dispatcher.dispatch({
       actionType: TicketConstants.ATTENDENTS_RECEIVED,
       tickets: tickets
+    })
+  },
+
+  createBookmark: function(bookmark){
+    Dispatcher.dispatch({
+      actionType: BookmarkConstants.BOOKMARK_RECEIVED,
+      bookmark: bookmark
+    })
+  },
+
+  fetchBookmarks: function(bookmarks){
+    Dispatcher.dispatch({
+      actionType: BookmarkConstants.BOOKMARKS_RECEIVED,
+      bookmarks: bookmarks
+    })
+  },
+
+  removeBookmark: function(bookmark){
+    Dispatcher.dispatch({
+      actionType: BookmarkConstants.REMOVE_BOOKMARK,
+      bookmark: bookmark
     })
   }
 }

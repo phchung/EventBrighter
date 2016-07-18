@@ -27,8 +27,90 @@
   letter-spacing: 0.5px;
 }
 
+.header-link-login{
+  padding: 20px;
+}
+
+.header-link-login a{
+  padding: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-left: 1px solid #EFF2F5;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+
+
+.header-list {
+  display: flex;
+}
+
 .header-list a:hover{
   background-color: #D8E3E6;
+}
+
+.menu-right{
+  position: absolute;
+  right: 2px;
+  width: 250px;
+}
+
+.header-notifications{
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  position: absolute;
+  z-index: 10;
+  background: white;
+  list-style: none;
+  white-space: nowrap;
+  outline: 1px solid #D2D6DF;
+  overflow: hidden;
+  font-size: 15px;
+  padding: 0;
+}
+
+.header-notifications li{
+  padding: 15px;
+  letter-spacing: .5px;
+  border-bottom: 1px solid #D2D6DF;
+  width: 100%;
+  cursor: pointer;
+}
+
+.header-user{
+  width: 150px;
+  height: 100%;
+  border-left: 1px solid #EFF2F5;
+}
+
+// .header-user > span{
+//   height: 100%;
+//   width: 100%;
+//   padding: 18px;
+//   font-size: 17px;
+//   letter-spacing: .5px;
+//   text-transform: uppercase;
+//   color: #23527c;
+//   font-weight: 400;
+// }
+//
+// .glyphicon-user{
+//   color: gray;
+// }
+
+.header-notifications li:hover{
+  background-color: #D8E3E6;
+}
+
+.menu-right{
+  display: none;
+}
+.menu-user:hover .menu-right{
+  display: block;
 }
 
 .main-div{

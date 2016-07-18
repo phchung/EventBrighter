@@ -11,6 +11,7 @@
   cursor: pointer;
   position: relative;
   background-color: white;
+  overflow: hidden;
 }
 
 #home-event-index-picture{
@@ -53,23 +54,27 @@
   padding: 10px 10px;
   letter-spacing: .5px;
   line-height: 15px;
+  border-left: 1px solid #DFE5EB;
+}
+
+.marked{
+  color:#00a8f2;
 }
 
 .glyphicon-tag{
-  font-size: 17px;
-  border-left: 1px solid #DFE5EB;
+  font-size: 19px;
 }
 
 .poster-display{
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  margin: auto;
+  justify-content: space-between;
 }
 
 .poster-details{
-  width: 80%;
-  margin: auto;
+  width: 1200px;
+  margin: 0 auto;
 }
 .poster-title{
   margin-left: 20px;
