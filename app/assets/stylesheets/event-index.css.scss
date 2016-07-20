@@ -48,6 +48,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  cursor: auto;
 }
 
 .footer{
@@ -55,15 +56,24 @@
   letter-spacing: .5px;
   line-height: 15px;
   border-left: 1px solid #DFE5EB;
+  cursor: pointer;
+}
+
+.bookmark-index{
+  border-left: 1px solid #DFE5EB;
+  width: 45px;
+}
+
+.bookmark-index > span {
+  font-size: 25px;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .marked{
   color:#00a8f2;
 }
 
-.glyphicon-tag{
-  font-size: 19px;
-}
 
 .poster-display{
   display: flex;

@@ -11,7 +11,9 @@ var App = require('./components/App'),
     Home = require('./components/home/Home'),
     LogInForm = require('./components/nav/login_form'),
     EventShow = require('./components/event/event_show'),
-    EventForm = require('./components/event/event_form')
+    EventForm = require('./components/event/event_form'),
+    Profile = require('./components/profile/profile')
+
 
 var SessionAction = require('./actions/SessionAction'),
     SessionStore = require('./stores/session'),
@@ -31,6 +33,7 @@ var routes = (
     <Route path="signup" component={LogInForm}/>
     <Route path="login" component={LogInForm}/>
     <Route path="create" component={EventForm} onEnter={_ensureLoggedIn}/>
+    <Route path='u' component={Profile}/>
   </Route>
 )
 

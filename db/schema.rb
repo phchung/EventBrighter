@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711211242) do
+ActiveRecord::Schema.define(version: 20160719192839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,19 +28,20 @@ ActiveRecord::Schema.define(version: 20160711211242) do
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.string   "location",    null: false
-    t.string   "category",    null: false
-    t.string   "description", null: false
-    t.string   "picture_url", null: false
-    t.integer  "price",       null: false
-    t.date     "start_date",  null: false
-    t.date     "end_date",    null: false
-    t.time     "start_time",  null: false
-    t.time     "end_time",    null: false
-    t.integer  "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "title",                       null: false
+    t.string   "location",                    null: false
+    t.string   "category",                    null: false
+    t.string   "description",                 null: false
+    t.string   "picture_url",                 null: false
+    t.integer  "price",                       null: false
+    t.date     "start_date",                  null: false
+    t.date     "end_date",                    null: false
+    t.time     "start_time",                  null: false
+    t.time     "end_time",                    null: false
+    t.integer  "user_id",                     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "attending",   default: false, null: false
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree

@@ -17,14 +17,18 @@ var ApiUtils = {
     })
   },
 
-  fetchEvents: function(data){
+  fetchEvents: function(data,cb){
     $.ajax({
       url: '/api/events',
       method: 'GET',
       dataType: 'json',
       data: data,
       success: function(events){
-        ServerActions.fetchEvents(events)
+        if(cb){
+          cb(events)
+        } else {
+          ServerActions.fetchEvents(events)
+        }
       }
     })
   },

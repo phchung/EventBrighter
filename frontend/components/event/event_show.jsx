@@ -2,7 +2,8 @@ var React = require('react'),
     EventStore = require('../../stores/event'),
     ClientAction = require('../../actions/ClientAction'),
     SessionStore = require('../../stores/session'),
-    TicketStore = require('../../stores/ticket')
+    TicketStore = require('../../stores/ticket'),
+    Bookmark = require('./bookmark')
 
 var EventShow = React.createClass({
 
@@ -18,6 +19,7 @@ var EventShow = React.createClass({
     ClientAction.fetchEvents()
     ClientAction.fetchTickets()
   },
+
   componentWillUnmount(){
     this.eventListener.remove()
     this.ticketListener.remove()
@@ -71,7 +73,6 @@ var EventShow = React.createClass({
   },
 
   render: function(){
-
     let attending;
     if(this.state.attending === false){
       attending = <button type="button" onClick={this.createTicket}
@@ -89,7 +90,7 @@ var EventShow = React.createClass({
             <div className="listing-location listing-group">{this.state.event.location}</div>
           </div>
           <div className="listing-panel">
-            <span className="glyphicon glyphicon-tag bookmark" ></span>
+            <Bookmark eventId={this.state.event.id}/>
             {attending}
           </div>
           <div className="listing-detail">

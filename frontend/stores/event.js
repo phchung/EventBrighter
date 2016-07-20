@@ -3,8 +3,13 @@ var Dispatcher = require('../dispatcher/dispatcher'),
     EventConstants = require('../constants/event_constants')
 
 _events = {}
+_upcomingEvents = {}
+
 var EventStore = new Store(Dispatcher)
 
+_resetUpcomingEvents = function(events){
+  _upcomingEvents = events
+}
 
 EventStore.__onDispatch = function(payload){
   switch(payload.actionType){
@@ -15,6 +20,11 @@ EventStore.__onDispatch = function(payload){
 
     case EventConstants.EVENTS_RECEIVED:
     this.resetEvents(payload.events)
+    this.__emitChange()
+    break;
+
+    case EventConstants.UPCOMING_EVENTS_RECEIVED:
+    _resetUpcomingEvents(payload.events)
     this.__emitChange()
     break;
   }
@@ -29,6 +39,16 @@ EventStore.all = function(){
   for(key in _events){
     if(_events.hasOwnProperty(key)){
     array.push(_events[key])
+  }
+}
+  return array.slice()
+}
+
+EventStore.upcomingEvents = function(){
+  var array = []
+  for(key in _upcomingEvents){
+    if(_upcomingEvents.hasOwnProperty(key)){
+    array.push(_upcomingEvents[key])
   }
 }
   return array.slice()

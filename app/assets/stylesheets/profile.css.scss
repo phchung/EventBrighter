@@ -1,0 +1,45 @@
+.profile-header{
+  background-color: white;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Benton Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  border-bottom: 1px solid #ADB0B6;
+}
+
+.profile-name{
+  font-size: 60px;
+}
+
+.profile-page{
+  height: 100%;
+  background-color: #F8F8FA;
+  height:100vh;
+}
+.grid{
+  padding-top: 65px;
+  display: flex;
+  width: 600px;
+}
+
+.grid > div{
+  padding: 0px 60px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.profile-show{
+  background-color: #F8F8FA;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.grey{
+  color: #ADB0B6;
+  border-bottom: 4px solid #00a8f2;
+}

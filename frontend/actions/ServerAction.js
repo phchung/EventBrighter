@@ -13,6 +13,13 @@ var ServerActions = {
     })
   },
 
+  fetchUpcomingEvents: function(events){
+    Dispatcher.dispatch({
+      actionType: EventConstants.UPCOMING_EVENTS_RECEIVED,
+      events: events
+    })
+  },
+
   createEvent: function(event){
 
     Dispatcher.dispatch({

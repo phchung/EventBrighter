@@ -1,6 +1,9 @@
 class Api::EventsController < ApplicationController
   def index
     @events = Event.all
+    if(date_params)
+      @events = Event.all.upcoming_shows(DateTime.now())
+    end
     render "api/events/index"
   end
 
@@ -20,4 +23,9 @@ class Api::EventsController < ApplicationController
     params.require(:event).permit(
     :title,:location,:category,:description,:picture_url,:price,:start_date,:end_date,:start_time,:end_time,:user_id)
   end
+
+  def date_params
+    params[:date]
+  end
+
 end

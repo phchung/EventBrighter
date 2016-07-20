@@ -15,4 +15,7 @@ has_many :followers, dependent: :destroy,
     foreign_key: :bookmark_id,
     class_name: 'Bookmark'
 
+  def self.upcoming_shows(date)
+    self.where("start_date > ?",date)
+  end
 end

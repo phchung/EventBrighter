@@ -53,4 +53,8 @@ BookmarkStore.includes = function(id){
   return false
 }
 
+BookmarkStore.all = function(){
+  return _bookmarks;
+}
+
 module.exports = BookmarkStore;

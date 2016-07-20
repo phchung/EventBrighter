@@ -50,6 +50,10 @@ var Navbar = React.createClass({
     this.openModal()
   },
 
+  _handleMenuClick: function(){
+      this.context.router.push("/u");
+  },
+
   __titleClick: function(){
     hashHistory.push("/")
   },
@@ -78,9 +82,9 @@ var Navbar = React.createClass({
                  <a className="header-link">{SessionStore.currentUser().username}</a>
                  <div className="menu-right">
                    <ul className="header-notifications">
-                     <li>Tickets</li>
-                     <li>Saved</li>
-                     <li>Manage Events</li>
+                     <li onClick={this._handleMenuClick}>Tickets</li>
+                     <li onClick={this._handleMenuClick}>Saved</li>
+                     <li onClick={this._handleMenuClick}>Manage Events</li>
                    </ul>
                  </div>
                </div>

@@ -2,7 +2,8 @@ var React = require('react'),
     hashHistory = require('react-router').hashHistory,
     BookmarkStore  = require('../../stores/bookmark'),
     ApiUtil = require('../../util/apiUtils'),
-    SessionStore = require('../../stores/session')
+    SessionStore = require('../../stores/session'),
+    Bookmark = require('./bookmark')
 
 var EventIndexItem = React.createClass({
 
@@ -94,7 +95,7 @@ var EventIndexItem = React.createClass({
         </div>
         <div className="index-footer">
           <div className="index-category footer">#{event.category}</div>
-          {bookmark}
+          <Bookmark eventId={this.props.event.id}/>
         </div>
       </div>
     )
