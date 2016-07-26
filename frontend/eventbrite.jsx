@@ -12,7 +12,8 @@ var App = require('./components/App'),
     LogInForm = require('./components/nav/login_form'),
     EventShow = require('./components/event/event_show'),
     EventForm = require('./components/event/event_form'),
-    Profile = require('./components/profile/profile')
+    Profile = require('./components/profile/profile'),
+    Search = require('./components/search/search')
 
 
 var SessionAction = require('./actions/SessionAction'),
@@ -34,6 +35,7 @@ var routes = (
     <Route path="login" component={LogInForm}/>
     <Route path="create" component={EventForm} onEnter={_ensureLoggedIn}/>
     <Route path='u' component={Profile}/>
+    <Route path='/d/*' component={Search}/>
   </Route>
 )
 
@@ -49,4 +51,5 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   });
 
-window.ClientAction = ClientAction
+window.ClientAction = ClientAction;
+window.EventForm = EventForm;

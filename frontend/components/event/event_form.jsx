@@ -25,7 +25,9 @@ var EventForm = React.createClass({
     start_date:"",
     end_date:"",
     start_time:"",
-    end_time:""
+    end_time:"",
+    lat:"",
+    lng:""
   },
 
   addCloudListener: function(){
@@ -43,7 +45,6 @@ var EventForm = React.createClass({
       }, false)})
   },
 
-
   setPictureUrl: function(result){
     this.setState ({picture_url: result[0].url})
   },
@@ -53,6 +54,7 @@ var EventForm = React.createClass({
     this.errorStore = ErrorStore.addListener(this.forceUpdate.bind(this))
     ErrorAction.clearErrors()
     this.addCloudListener()
+    this.setState(this.blankattr)
   },
 
   addUser: function(){
@@ -70,7 +72,6 @@ var EventForm = React.createClass({
 
   fieldErrors: function(property){
     if(!_errors[0]){return}
-
      _errors.map(function(error,i){
       if(error.includes(property)){
         if(property === "date" || property === "time"){
@@ -82,12 +83,21 @@ var EventForm = React.createClass({
     return <div className="event-error">{message}</div>
   },
 
-
-  handleSubmit: function(e){
-    e.preventDefault()
-    ClientAction.createEvent({event:Object.assign({},this.state)})
-    this.setState(this.blankattr)
-    
+  geocodeAddress: function(geocoder){
+    var address = document.getElementById('location').value
+    var that = this;
+    geocoder.geocode({'address': address}, function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        var lat = results[0].geometry.location.lat()
+        var lng = results[0].geometry.location.lng()
+        that.state.lat = lat
+        that.state.lng = lng
+        ClientAction.createEvent({event:Object.assign({},that.state)})
+     } else {
+       alert('Please Try Again!')
+       throw new Error("Something went badly wrong!");
+     }
+    })
   },
 
   handleCancel: function(){
@@ -98,8 +108,13 @@ var EventForm = React.createClass({
     return (e) => this.setState({[property]: e.target.value})
   },
 
-  render: function(){
+  handleSubmit: function(e){
+    e.preventDefault()
+    var geocoder = new google.maps.Geocoder();
+    this.geocodeAddress(geocoder)
+  },
 
+  render: function(){
     let image;
     if(this.state.picture_url){
       image = <div className="image-container not-active">
@@ -142,6 +157,7 @@ var EventForm = React.createClass({
           {this.fieldErrors('Title')}
           <label className="location">Location</label>
           <input
+            id="location"
             type="text"
             value={this.state.location}
             className="form-control"
@@ -203,10 +219,16 @@ var EventForm = React.createClass({
               <div className="category-price-input right">
                 <select className="form-control input-lrg" onChange={this.update("category")}>
                   <option value="" disabled selected>Select the type of event</option>
-                  <option>Rock</option>
-                  <option>EDM</option>
-                  <option>Folk</option>
-                  <option>Rap</option>
+                  <option>Art</option>
+                  <option>Music</option>
+                  <option>Food & Drink</option>
+                  <option>Science & Tech</option>
+                  <option>Health</option>
+                  <option>Travel & Outdoor</option>
+                  <option>Fashion</option>
+                  <option>Sports & Fitness</option>
+                  <option>Business</option>
+                  <option>Hobbies</option>
                 </select>
               </div>
               {this.fieldErrors('Category')}

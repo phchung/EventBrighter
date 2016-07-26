@@ -54,6 +54,10 @@ var Navbar = React.createClass({
       this.context.router.push("/u");
   },
 
+  __browseClick: function(){
+    hashHistory.push('/d/ca---sanfrancisco')
+  },
+
   __titleClick: function(){
     hashHistory.push("/")
   },
@@ -72,12 +76,18 @@ var Navbar = React.createClass({
     if(SessionStore.isUserLoggedIn()){
       return(
         <header className='nav-header'>
-            <div onClick={this.__titleClick}className="title">
-              NotEventbrite
+            <div className='nav-leftside'>
+              <div onClick={this.__titleClick} className="title">
+                NotEventbrite
+              </div>
+              <div className="browse" onClick={this.__browseClick}>
+                <span>Browse Events</span>
+              </div>
             </div>
             <div className="header-list">
               <div><a className="header-link" onClick={this.handleLogout}
-                     type="submit">Logout</a></div>
+                     type="submit">Logout</a>
+              </div>
               <div className="menu-user">
                  <a className="header-link">{SessionStore.currentUser().username}</a>
                  <div className="menu-right">
