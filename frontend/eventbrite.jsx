@@ -18,19 +18,22 @@ var App = require('./components/App'),
 
 var SessionAction = require('./actions/SessionAction'),
     SessionStore = require('./stores/session'),
-    ClientAction = require('./actions/ClientAction')
+    ClientAction = require('./actions/ClientAction'),
+    LogAction = require('./actions/LogAction')
 
 window.SessionAction = SessionAction
 window.SessionStore = SessionStore
 
 function _ensureLoggedIn(nextstate,replace){
-  if(!SessionStore.isUserLoggedIn()){replace('/login');}
+  if(!SessionStore.isUserLoggedIn())
+  { LogAction.openForm()
+    replace('/');}
 }
 
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
-    <Route path="events/:eventId" component={EventShow} />
+    <Route path="events/:eventId" onEnter={_ensureLoggedIn} component={EventShow}/>
     <Route path="signup" component={LogInForm}/>
     <Route path="login" component={LogInForm}/>
     <Route path="create" component={EventForm} onEnter={_ensureLoggedIn}/>
@@ -53,3 +56,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.ClientAction = ClientAction;
 window.EventForm = EventForm;
+window.LogAction = LogAction;
+window.SessionStore = SessionStore;

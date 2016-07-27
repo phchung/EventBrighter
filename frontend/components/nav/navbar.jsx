@@ -3,7 +3,8 @@ var React = require('react'),
     SessionAction = require('../../actions/SessionAction'),
     Modal = require("react-modal"),
     LoginForm = require('./login_form.jsx'),
-    hashHistory = require('react-router').hashHistory
+    hashHistory = require('react-router').hashHistory,
+    LogStore = require('../../stores/log_store')
 
 var modalStyles = {
   content : {
@@ -14,7 +15,7 @@ var modalStyles = {
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     width                 : '300px',
-    height                : '300px',
+    height                : '330px',
     padding               : '0px',
     transition            : 'top .5s'
   }
@@ -32,6 +33,10 @@ var Navbar = React.createClass({
     })
   },
 
+  componentDidMount: function(){
+    this.logListener = LogStore.addListener(this._toggleForm);
+  },
+
   closeModal: function(){
     this.setState({modalOpen: false})
     modalStyles.content.top = '-20%'
@@ -39,6 +44,12 @@ var Navbar = React.createClass({
 
   openModal: function(){
     this.setState({modalOpen: true})
+  },
+
+  _toggleForm: function() {
+    this.setState({
+      modalOpen: LogStore.modalState()
+    });
   },
 
   onModalOpen: function(){
@@ -51,15 +62,19 @@ var Navbar = React.createClass({
   },
 
   _handleMenuClick: function(){
-      this.context.router.push("/u");
+    this.context.router.push("/u");
   },
 
   __browseClick: function(){
-    hashHistory.push('/d/ca---sanfrancisco')
+    hashHistory.push('/d/CA---San Francisco')
   },
 
   __titleClick: function(){
     hashHistory.push("/")
+  },
+
+  _redirectCreateEvent: function(){
+    hashHistory.push('/create')
   },
 
   handleLogout: function(e){
@@ -78,7 +93,7 @@ var Navbar = React.createClass({
         <header className='nav-header'>
             <div className='nav-leftside'>
               <div onClick={this.__titleClick} className="title">
-                NotEventbrite
+                EventBrighter
               </div>
               <div className="browse" onClick={this.__browseClick}>
                 <span>Browse Events</span>
@@ -94,7 +109,7 @@ var Navbar = React.createClass({
                    <ul className="header-notifications">
                      <li onClick={this._handleMenuClick}>Tickets</li>
                      <li onClick={this._handleMenuClick}>Saved</li>
-                     <li onClick={this._handleMenuClick}>Manage Events</li>
+                     <li onClick={this._redirectCreateEvent}>Create New Event</li>
                    </ul>
                  </div>
                </div>
@@ -105,7 +120,7 @@ var Navbar = React.createClass({
       return(
         <header className = 'nav-header'>
             <div className="title" onClick={this.__titleClick}>
-              NotEventbrite
+              EventBrighter
             </div>
             <div className="header-link-login">
               <a className="header-link"

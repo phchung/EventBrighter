@@ -19,7 +19,7 @@
   height:100vh;
 }
 .grid{
-  padding-top: 65px;
+  padding-top: 25px;
   display: flex;
   width: 600px;
 }
@@ -42,4 +42,8 @@
 .grey{
   color: #ADB0B6;
   border-bottom: 4px solid #00a8f2;
+}
+
+#profile-number{
+  border: none;
 }

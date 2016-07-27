@@ -94,8 +94,7 @@ var EventForm = React.createClass({
         that.state.lng = lng
         ClientAction.createEvent({event:Object.assign({},that.state)})
      } else {
-       alert('Please Try Again!')
-       throw new Error("Something went badly wrong!");
+      ClientAction.createEvent({event:Object.assign({},that.state)})
      }
     })
   },

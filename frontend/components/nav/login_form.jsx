@@ -3,7 +3,8 @@ var React = require('react'),
     SessionStore = require('../../stores/session'),
     Link = require('react-router').Link,
     hashHistory = require('react-router').hashHistory,
-    ErrorStore = require('../../stores/error')
+    ErrorStore = require('../../stores/error'),
+    ErrorAction = require('../../actions/ErrorAction')
 
 
 var LogInForm = React.createClass({
@@ -28,6 +29,7 @@ var LogInForm = React.createClass({
 },
 
   componentDidMount: function(){
+    ErrorAction.clearErrors()
     this.sessionStore = SessionStore.addListener(this.__onChange)
     this.errorStore = ErrorStore.addListener(this.forceUpdate.bind(this))
   },
@@ -36,6 +38,7 @@ var LogInForm = React.createClass({
     this.sessionStore.remove()
     this.errorStore.remove()
   },
+
 
   handleSubmit: function(e){
     e.preventDefault()
@@ -46,6 +49,12 @@ var LogInForm = React.createClass({
       SessionAction.logIn(user)
     }
     this.setState(this.blankAttr)
+  },
+
+  handleDemoAccount: function(e){
+    e.preventDefault()
+    const user = {username:"DemoUser",password:"password"}
+    SessionAction.logIn(user)
   },
 
   formType: function(){
@@ -76,7 +85,7 @@ var LogInForm = React.createClass({
   render: function(){
 
     return(
-      <form className="login-form" onSubmit={this.handleSubmit}>
+      <form className="login-form">
         <h1 className="login-text">{this.formType()}</h1>
           {this.fieldError('base')}
           {this.fieldError('password')}
@@ -90,7 +99,10 @@ var LogInForm = React.createClass({
           placeholder='Password'
           onChange={this.update("password")}></input>
         <br/>
-        <input className="login-box button" type='submit' value={this.formType()}></input>
+        <div><input className="login-box button" type='submit' value={this.formType()}
+          onClick={this.handleSubmit}></input></div>
+        <input className="demo-button" type='submit' value="Demo Login"
+          onClick={this.handleDemoAccount}></input>
       </form>
     )
   }

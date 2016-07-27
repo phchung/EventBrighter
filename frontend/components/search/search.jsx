@@ -23,16 +23,6 @@ var Search = React.createClass({
     this.eventListener.remove()
   },
 
-  componentDidUpdate: function(prevProps, prevState){
-    const current = this.state
-    if(current.category !== prevState.category || current.date !== prevState.date){
-      var obj ={
-        category: current.category, date: current.date
-        }
-      ClientActions.fetchEvents(Object.assign({},obj))
-    }
-  },
-
   filter: function(property){
     return (e) => this.setState({[property]: e.target.value})
   },
@@ -50,7 +40,7 @@ var Search = React.createClass({
         <div className="search-left">
           <Map events={this.state.events} date={this.state.date}
             category={this.state.category}/>
-          <input id="pac-input" class="controls" type="text" placeholder="Search Box"/>
+          <input id="pac-input" class="controls" type="text" placeholder="Search City"/>
           <div className="category-search">
             <select className="form-control input-lrg" onChange={this.filter("category")}>
               <option value="" disabled selected>CATEGORY</option>

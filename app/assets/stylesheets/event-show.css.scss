@@ -39,7 +39,6 @@
   color: #00a8f2;
 }
 
-
 .tickets{
   color: white;
   background-color: #00cc52;
@@ -59,4 +58,18 @@
 .listing-detail{
   display: flex;
   justify-content: space-between;
+}
+
+.picture-container{
+  margin-top: 10px;
+  height: 215px;
+}
+
+.description-container{
+  margin-top: 10px;
+  height: 215px;
+  overflow: scroll;
+}
+.show-map{
+  margin-top: 15px;
 }

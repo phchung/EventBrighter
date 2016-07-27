@@ -2,6 +2,10 @@ class Api::EventsController < ApplicationController
   def index
     @events = Event.all.upcoming_shows(DateTime.now())
 
+    if(ticketed_shows)
+      @events = @events.user_shows(current_user)
+    end
+
     if(bounds)
       @events = @events.in_bounds(bounds)
     end
@@ -18,7 +22,6 @@ class Api::EventsController < ApplicationController
   end
 
   def create
-
     @event = Event.create(event_params)
     if @event.save
       render "api/events/show"
@@ -45,5 +48,9 @@ class Api::EventsController < ApplicationController
 
   def bounds
     params[:bounds]
+  end
+
+  def ticketed_shows
+    params[:ticketed_shows]
   end
 end

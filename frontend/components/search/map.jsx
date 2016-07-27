@@ -1,6 +1,7 @@
 var React = require('react'),
     ClientActions = require('../../actions/ClientAction'),
-    EventStore = require('../../stores/event')
+    EventStore = require('../../stores/event'),
+    hashHistory = require('react-router').hashHistory
 
 _marker = []
 
@@ -20,11 +21,14 @@ var Map = React.createClass({
     var mapOptions = {
       disableDefaultUI: true,
       center: {lat: 37.7758, lng: -122.435},
-      zoom: 10
+      zoom: 11
     };
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
     this.idleEvent()
-    this.initSearch()
+    this.single_marker()
+    if(!this.props.singleEvent){
+      this.initSearch()
+    }
     var geocoder = new google.maps.Geocoder();
   },
 
@@ -39,11 +43,15 @@ var Map = React.createClass({
     searchBox.addListener('places_changed', function() {
          var places = searchBox.getPlaces();
          if (places.length == 0 ) {
+           alert('Could not find Location')
            return;
          }
          var lat = places[0].geometry.location.lat()
          var lng = places[0].geometry.location.lng()
+         var city_location = places[0].formatted_address.split(', ')[0]
+         var state_location = places[0].formatted_address.split(', ')[1]
          that.map.setCenter(new google.maps.LatLng(lat,lng))
+         hashHistory.push('/d/' + state_location + '---' + city_location)
        })
   },
 
@@ -66,9 +74,33 @@ var Map = React.createClass({
       })
     },
 
+  single_marker: function(){
+    const event = this.props.event
+        if(this.props.singleEvent){
+          this.map.setCenter({lat:event.lat, lng:event.lng})
+          this.map.setOptions({draggable: false})
+        }
+    },
+
   componentDidUpdate: function(prevProps, prevState){
-   this.props.events.forEach(this._addMarker)
-   this.markersToRemove().forEach(this.removeMarker)
+    const current = this.props
+    if(current.category !== prevProps.category || current.date !== prevProps.date){
+        var obj = {
+          bounds:{
+            northEast: this.northEast,
+            southWest: this.southWest
+          },
+          category: current.category,
+          date: current.date
+        }
+      ClientActions.fetchEvents(Object.assign({},obj))
+    }
+    if(this.props.singleEvent){
+      this._addMarker(this.props.event)
+    }else{
+       this.props.events.forEach(this._addMarker)
+       this.markersToRemove().forEach(this.removeMarker)
+   }
  },
 
   _addMarker: function(event){

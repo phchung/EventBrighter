@@ -20,7 +20,7 @@ var Profile = React.createClass({
 
   componentDidMount: function(){
     this.eventListener = EventStore.addListener(this.__eventChanged)
-    ApiUtil.fetchEvents({date: true},ServerAction.fetchUpcomingEvents)
+    ApiUtil.fetchEvents({ticketed_shows: true},ServerAction.fetchUpcomingEvents)
     this.setBookmarks()
   },
 
@@ -66,12 +66,18 @@ var Profile = React.createClass({
         <div className="profile-header">
           <div className="profile-name">{username}</div>
           <div className="grid">
-            <div className={highlight1} onClick={this._handleForm}>UPCOMING EVENTS</div>
-            <div className={highlight2} onClick={this._handleForm}>SAVED EVENTS</div>
+            <div>
+              <div id="profile-number" className={highlight1}>{this.state.upcomingEvents.length}</div>
+              <div className={highlight1} onClick={this._handleForm}>UPCOMING EVENTS</div>
+            </div>
+            <div>
+              <div id="profile-number" className={highlight2}>{this.state.bookmarks.length}</div>
+              <div className={highlight2} onClick={this._handleForm}>SAVED EVENTS</div>
+            </div>
           </div>
         </div>
-          {show}
-      </div>
+      {show}
+    </div>
     )
   }
 })

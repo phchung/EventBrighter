@@ -3,7 +3,8 @@ var React = require('react'),
     ClientAction = require('../../actions/ClientAction'),
     SessionStore = require('../../stores/session'),
     TicketStore = require('../../stores/ticket'),
-    Bookmark = require('./bookmark')
+    Bookmark = require('./bookmark'),
+    Map = require('../search/map')
 
 var EventShow = React.createClass({
 
@@ -77,26 +78,28 @@ var EventShow = React.createClass({
     if(this.state.attending === false){
       attending = <button type="button" onClick={this.createTicket}
                   className="btn btn-info tickets"><span>TICKETS</span></button>
-    }else{
+    } else {
       attending = <button type="button" className="btn btn-info tickets"
-                   disabled><span>ATTENDING</span></button>
+                   disabled><span>ATTENDING!</span></button>
     }
-
     return(
-        <div className="event-show">
-          <div className="listing-header">
-            <div className="listing-title">{this.state.event.title}</div>
-            <div className="listing-date listing-group">{this.state.parsedDate} from {this.state.start_time} (PST)</div>
-            <div className="listing-location listing-group">{this.state.event.location}</div>
-          </div>
-          <div className="listing-panel">
-            <Bookmark eventId={this.state.event.id}/>
-            {attending}
-          </div>
-          <div className="listing-detail">
-            <div>{this.state.event.description}</div>
-            <div><img id="event-show-picture"
-              src={this.state.event.picture_url}/></div>
+      <div className="event-show">
+        <div className="listing-header">
+          <div className="listing-title">{this.state.event.title}</div>
+          <div className="listing-date listing-group">{this.state.parsedDate} At {this.state.start_time}(PST)</div>
+          <div className="listing-location listing-group">{this.state.event.location}</div>
+        </div>
+        <div className="listing-panel">
+          <Bookmark eventId={this.state.event.id}/>
+          {attending}
+        </div>
+        <div className="listing-detail">
+          <div className="description-container">{this.state.event.description}</div>
+          <div className="picture-container"><img id="event-show-picture"
+            src={this.state.event.picture_url}/></div>
+        </div>
+        <div className="show-map">
+          <Map singleEvent={true} event={this.state.event}/>
         </div>
       </div>
     )

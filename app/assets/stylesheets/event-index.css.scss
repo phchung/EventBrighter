@@ -16,6 +16,7 @@
 
 #home-event-index-picture{
   height: 160px;
+  width: 100%;
 }
 
 .index-title{
@@ -89,9 +90,18 @@
 .poster-title{
   margin-left: 20px;
   padding-top: 15px;
-  font-size: 18px;
+  font-size: 30px;
 }
 
 .homepage{
   background-color: #F8F8FA;
+}
+
+.event-index-item > img{
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+}
+
+.event-index-item > img:hover{
+  opacity: .5;
 }

@@ -28,7 +28,7 @@ has_many :followers, dependent: :destroy,
           .where("start_date < ?", Time.now() + 1.week)
     elsif date == 'This Month'
       self.where("start_date > ?", Time.now())
-          .where("strat_date < ?", Time.now() + 1.month)
+          .where("start_date < ?", Time.now() + 1.month)
     end
   end
 
@@ -41,5 +41,13 @@ has_many :followers, dependent: :destroy,
 
   def self.category(category)
     self.where(:category => category)
+  end
+
+  def self.user_shows(current_user)
+    arr = []
+    current_user.shows.each do |show|
+      arr.push(show.show_id)
+    end
+    self.where(id:arr)
   end
 end
