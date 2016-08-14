@@ -1,7 +1,6 @@
 var React = require('react'),
     EventIndexItem = require('./event_index_item')
 
-
 var EventIndex = React.createClass({
 
   render: function(){

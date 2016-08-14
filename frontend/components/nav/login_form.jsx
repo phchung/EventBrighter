@@ -4,7 +4,8 @@ var React = require('react'),
     Link = require('react-router').Link,
     hashHistory = require('react-router').hashHistory,
     ErrorStore = require('../../stores/error'),
-    ErrorAction = require('../../actions/ErrorAction')
+    ErrorAction = require('../../actions/ErrorAction'),
+    ApiUtil = require('../../util/apiUtils')
 
 
 var LogInForm = React.createClass({
@@ -39,22 +40,23 @@ var LogInForm = React.createClass({
     this.errorStore.remove()
   },
 
-
   handleSubmit: function(e){
     e.preventDefault()
     const user = {username:this.state.username,password:this.state.password}
     if(this.props.form ==="signup"){
       SessionAction.signUp(user)
-    } else{
+    } else {
       SessionAction.logIn(user)
     }
     this.setState(this.blankAttr)
   },
 
   handleDemoAccount: function(e){
+    debugger;
     e.preventDefault()
     const user = {username:"DemoUser",password:"password"}
     SessionAction.logIn(user)
+    hashHistory.push('/')
   },
 
   formType: function(){

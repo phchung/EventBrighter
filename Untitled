@@ -1,7 +1,0 @@
-<a className="header-link" onClick={this.handleLogout}
-   type="submit">Logout</a>
-<a id="header-username" className="header-link">{SessionStore.currentUser().username}</a>
-<ul className="header-notifications">
-  <li><a>howdy</a></li>
-  <li><a>howdyie</a></li>
-</ul>

@@ -34,8 +34,6 @@ var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
     <Route path="events/:eventId" onEnter={_ensureLoggedIn} component={EventShow}/>
-    <Route path="signup" component={LogInForm}/>
-    <Route path="login" component={LogInForm}/>
     <Route path="create" component={EventForm} onEnter={_ensureLoggedIn}/>
     <Route path='u' component={Profile}/>
     <Route path='/d/*' component={Search}/>
@@ -58,3 +56,4 @@ window.ClientAction = ClientAction;
 window.EventForm = EventForm;
 window.LogAction = LogAction;
 window.SessionStore = SessionStore;
+window.hashHistory = hashHistory;

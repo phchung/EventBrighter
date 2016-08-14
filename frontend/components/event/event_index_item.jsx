@@ -94,7 +94,7 @@ var EventIndexItem = React.createClass({
           </div>
         </div>
         <div className="index-footer">
-          <div className="index-category footer">#{event.category}</div>
+          <div className="indemax-category footer">#{event.category}</div>
           <Bookmark eventId={this.props.event.id}/>
         </div>
       </div>
