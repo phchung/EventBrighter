@@ -14,10 +14,9 @@ class Api::RelationshipsController < ApplicationController
 
   def destroy
     @relationship = Relationship.find_by_credentials(
-    params[:relationship][:show_id],
-    params[:relationship][:purchaser_id]
+      params[:relationship][:show_id],
+      params[:relationship][:purchaser_id]
     )
-
     render :show if @relationship.destroy
   end
 
@@ -25,7 +24,7 @@ class Api::RelationshipsController < ApplicationController
 
   def relationship_params
     params.require(:relationship).permit(
-    :show_id,:purchaser_id
+      :show_id,:purchaser_id
     )
   end
 end

@@ -21,9 +21,6 @@ var SessionAction = require('./actions/SessionAction'),
     ClientAction = require('./actions/ClientAction'),
     LogAction = require('./actions/LogAction')
 
-window.SessionAction = SessionAction
-window.SessionStore = SessionStore
-
 function _ensureLoggedIn(nextstate,replace){
   if(!SessionStore.isUserLoggedIn())
   { LogAction.openForm()
@@ -50,10 +47,4 @@ document.addEventListener("DOMContentLoaded", function () {
       <Router history={hashHistory}>{routes}</Router>,
       document.getElementById('root')
     );
-  });
-
-window.ClientAction = ClientAction;
-window.EventForm = EventForm;
-window.LogAction = LogAction;
-window.SessionStore = SessionStore;
-window.hashHistory = hashHistory;
+});

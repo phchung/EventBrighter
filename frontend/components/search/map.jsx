@@ -21,7 +21,7 @@ var Map = React.createClass({
     var mapOptions = {
       disableDefaultUI: true,
       center: {lat: 37.7758, lng: -122.435},
-      zoom: 11
+      zoom: 10
     };
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
     this.idleEvent()

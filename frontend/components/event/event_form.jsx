@@ -75,9 +75,9 @@ var EventForm = React.createClass({
      _errors.map(function(error,i){
       if(error.includes(property)){
         if(property === "date" || property === "time"){
-           message = "PLEASE INPUT A VALID DATE/TIME"
+          message = "PLEASE INPUT A VALID DATE/TIME"
         } else {
-           message = error
+          message = error
         }
       }})
     return <div className="event-error">{message}</div>
