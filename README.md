@@ -12,4 +12,4 @@ EventBrighter is a single-page full stack web application inspired by Eventbrite
 
 Users are able to filter events by cities, categories and dates to receive instant updates. Google Maps API compliments this search by updating the marker position simultaneously. 
 
-![Example1](./assets/images/github_example1.png)
+![Example1](./app/assets/images/github_example1.png)
