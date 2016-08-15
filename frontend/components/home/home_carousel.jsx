@@ -57,7 +57,7 @@ var HomeCarousel = React.createClass({
               </div>
             </div>
             <div className="item">
-              <img className="third-slide" src="http://unsplash.com/photos/j5LSbCqB1wA/download"/>
+              <img className="third-slide" src="https://hd.unsplash.com/photo-1466500419182-8602dc906b51"/>
               <div className="container">
                 <div className="carousel-caption">
                   <h1>Sell Tickets</h1>
@@ -69,7 +69,7 @@ var HomeCarousel = React.createClass({
               </div>
             </div>
             <div className="item">
-              <img className="fourth-slide" src="https://hd.unsplash.com/photo-1466500419182-8602dc906b51"/>
+              <img className="fourth-slide" src="https://hd.unsplash.com/41/bXoAlw8gT66vBo1wcFoO_IMG_9181.jpg"/>
               <div className="container">
                 <div className="carousel-caption">
                   <h1>Sell Tickets</h1>
@@ -81,7 +81,7 @@ var HomeCarousel = React.createClass({
               </div>
             </div>
             <div className="item">
-              <img className="fifth-slide" src="https://hd.unsplash.com/41/bXoAlw8gT66vBo1wcFoO_IMG_9181.jpg"/>
+              <img className="fifth-slide" src="http://unsplash.com/photos/j5LSbCqB1wA/download"/>
               <div className="container">
                 <div className="carousel-caption">
                   <h1>Sell Tickets</h1>
