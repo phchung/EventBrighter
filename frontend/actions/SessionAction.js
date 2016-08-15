@@ -2,7 +2,9 @@ var Dispatcher = require('../dispatcher/dispatcher'),
     SessionConstants = require('../constants/session_constants'),
     SessionApiUtil = require('../util/SessionApiUtil'),
     ErrorAction = require('./ErrorAction'),
-    hashHistory = require('react-router').hashHistory
+    hashHistory = require('react-router').hashHistory,
+    apiUtil = require('../util/apiUtils'),
+    ServerAction = require('./ServerAction')
 
 var SessionAction = {
 
@@ -24,6 +26,7 @@ var SessionAction = {
       currentUser: currentUser
     })
     hashHistory.push('/')
+    apiUtil.fetchBookmarks()
   },
 
   removeCurrentUser: function(){
@@ -31,6 +34,7 @@ var SessionAction = {
       actionType: SessionConstants.LOGOUT
     })
     hashHistory.push('/')
+    ServerAction.clearBookmarks()
   }
 }
 

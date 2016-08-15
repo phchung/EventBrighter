@@ -1,4 +1,5 @@
-
+var apiUtil = require('./apiUtils'),
+    SessionAction = require('../actions/SessionAction')
 
 var SessionApiUtil = {
   logIn(user,success,error){

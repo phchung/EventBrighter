@@ -57,6 +57,12 @@ var ServerActions = {
     })
   },
 
+  clearBookmarks: function(){
+    Dispatcher.dispatch({
+      actionType: BookmarkConstants.CLEAR_BOOKMARKS
+    })
+  },
+
   removeBookmark: function(bookmark){
     Dispatcher.dispatch({
       actionType: BookmarkConstants.REMOVE_BOOKMARK,

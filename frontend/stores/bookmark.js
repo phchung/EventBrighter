@@ -27,6 +27,10 @@ _removeBookmark = function(bookmark){
   })
 }
 
+_clearBookmarks = function(){
+  _bookmarks = []
+}
+
 BookmarkStore.__onDispatch = function(payload){
   switch(payload.actionType){
     case BookmarkConstants.BOOKMARKS_RECEIVED:
@@ -41,6 +45,11 @@ BookmarkStore.__onDispatch = function(payload){
 
     case BookmarkConstants.REMOVE_BOOKMARK:
     _removeBookmark(payload.bookmark)
+    this.__emitChange()
+    break;
+
+    case BookmarkConstants.CLEAR_BOOKMARKS:
+    _clearBookmarks()
     this.__emitChange()
     break;
   }
