@@ -39,3 +39,8 @@ componentDidUpdate: function(prevProps, prevState){
    }
  },
 ```
+
+## Future Implementations
+- Recommend events based upon user's history of past/bookmarked events
+- Flexibility in managing user created events
+- Account activation via email
