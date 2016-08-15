@@ -40,6 +40,12 @@ componentDidUpdate: function(prevProps, prevState){
  },
 ```
 
+### Event Creation
+
+EventBrighter allows signed in users to create their own events. The creation form uses Cloudinary API to upload images and a `ErrorStore` using the flux architecture to render error messages. The location paramter is inputted into Google Map's geocoder and depending on the status code, the event is either entered in the database or an error message will render.
+
+![Example1](./app/assets/images/github_example2.png)
+
 ## Future Implementations
 - Recommend events based upon user's history of past/bookmarked events
 - Flexibility in managing user created events
