@@ -14,7 +14,7 @@ Users are able to filter events by cities, categories and dates to receive insta
 
 ![Example1](./app/assets/images/github_example1.png)
 
-The Search component stores the filtered paramters as state and gets passed to the Map component as props. This triggers `compoonentDidUpdate` to send a AJAX request to the server to fetch all events matching the given paramters along with the lat lng bounds of the current map.
+The `Search` component stores the filtered paramters as state and gets passed to the `Map` component as props. This triggers `compoonentDidUpdate` to send a AJAX request to the server to fetch all events matching the given paramters along with the lat lng bounds of the current map.
 
 ```
 // Map Component
