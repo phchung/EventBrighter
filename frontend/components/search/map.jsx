@@ -94,8 +94,8 @@ var Map = React.createClass({
     if(this.props.singleEvent){
       this._addMarker(this.props.event)
     }else{
-       this.props.events.forEach(this._addMarker)
-       this.markersToRemove().forEach(this.removeMarker)
+      this.props.events.forEach(this._addMarker)
+      this.markersToRemove().forEach(this.removeMarker)
    }
  },
 
