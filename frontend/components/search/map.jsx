@@ -32,10 +32,6 @@ var Map = React.createClass({
     var geocoder = new google.maps.Geocoder();
   },
 
-  componentWillUnmount: function(){
-
-  },
-
   initSearch: function(){
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
@@ -111,7 +107,7 @@ var Map = React.createClass({
         eventId: event.id
       })
       this.markers.push(marker)
-    },
+  },
 
   markersToRemove: function(){
     const map_marker_id = []

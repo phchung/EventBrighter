@@ -8,7 +8,7 @@ var Home = React.createClass({
 
   getInitialState: function(){
     return({
-      events: EventStore.all()
+      events: EventStore.all().slice(0,9)
     })
   },
 
@@ -22,7 +22,7 @@ var Home = React.createClass({
   },
 
   __eventsChanged: function(){
-    this.setState({events: EventStore.all()})
+    this.setState({events: EventStore.all().slice(0,9)})
   },
 
   render: function(){
