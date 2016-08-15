@@ -40,6 +40,9 @@ componentDidUpdate: function(prevProps, prevState){
  },
 ```
 
+### Relationship model for Bookmarks
+
+
 ## Future Implementations
 - Recommend events based upon user's history of past/bookmarked events
 - Flexibility in managing user created events
