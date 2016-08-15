@@ -1,6 +1,7 @@
 var React = require('react'),
     BookmarkStore  = require('../../stores/bookmark'),
-    ApiUtil = require('../../util/apiUtils')
+    ApiUtil = require('../../util/apiUtils'),
+    SessionStore = require('../../stores/session')
 
 var Bookmark = React.createClass({
 
@@ -10,7 +11,9 @@ var Bookmark = React.createClass({
 
   componentDidMount: function(){
     this.bookmarkListener = BookmarkStore.addListener(this._bookmarkChanged)
-    ApiUtil.fetchBookmarks()
+    if(SessionStore.isUserLoggedIn()){
+      ApiUtil.fetchBookmarks()
+    }
   },
 
   componentWillUnmount: function(){
@@ -26,10 +29,12 @@ var Bookmark = React.createClass({
     const eventId = this.props.eventId
     const currentUser = SessionStore.currentUser().id
     const bookmark = Object.assign({},{bookmark_id: eventId, user_id: currentUser})
-    if(this.state.bookmark){
-      ApiUtil.deleteBookmark(bookmark)
-    } else {
-      ApiUtil.createBookmark(bookmark)
+    if(SessionStore.isUserLoggedIn()){
+      if(this.state.bookmark){
+        ApiUtil.deleteBookmark(bookmark)
+      } else {
+        ApiUtil.createBookmark(bookmark)
+      }
     }
   },
 

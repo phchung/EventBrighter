@@ -52,7 +52,6 @@ var LogInForm = React.createClass({
   },
 
   handleDemoAccount: function(e){
-    debugger;
     e.preventDefault()
     const user = {username:"DemoUser",password:"password"}
     SessionAction.logIn(user)

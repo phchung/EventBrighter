@@ -18,7 +18,9 @@ var EventIndexItem = React.createClass({
   componentDidMount: function(){
     this.bookmarkListener = BookmarkStore.addListener(this._bookmarkChanged)
     this._setDatetime()
-    ApiUtil.fetchBookmarks()
+    if(SessionStore.isUserLoggedIn()){
+      ApiUtil.fetchBookmarks()
+    }
   },
 
   componentWillUnmount: function(){
