@@ -2,5 +2,5 @@
 
 require ::File.expand_path('../config/environment', __FILE__)
 # require File.dirname(FILE) + '../../EventBrighter'
-$LOAD_PATH.unshift File.dirname(__FILE__)
+# $LOAD_PATH.unshift File.dirname(__FILE__)
 run Rails.application
