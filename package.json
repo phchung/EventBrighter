@@ -27,8 +27,6 @@
     "node": "5.10.1",
     "npm": "3.8.3"
   },
-  "scripts":{
-    "postinstall" : "./node_modules/.bin/webpack"
-  },
+
   "devDependencies": {}
 }
