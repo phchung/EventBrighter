@@ -26,6 +26,7 @@ gem 'pry-rails'
 gem 'annotate'
 gem 'bootstrap-sass'
 gem 'bcrypt'
+gem 'bundler'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
