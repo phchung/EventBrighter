@@ -6,9 +6,6 @@
   "directories": {
     "test": "test"
   },
-  "scripts": {
-    "postinstall": "./node_modules/.bin/webpack"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
