@@ -2,7 +2,7 @@ var apiUtil = require('./apiUtils'),
     SessionAction = require('../actions/SessionAction')
 
 var SessionApiUtil = {
-  logIn(user,success,error){
+  logIn: function(user,success,error){
     $.ajax({
       url: 'api/session',
       type: 'POST',
@@ -16,7 +16,7 @@ var SessionApiUtil = {
     })
   },
 
-  logOut(success){
+  logOut: function(success){
     $.ajax({
       url: 'api/session',
       type: 'DELETE',
@@ -27,7 +27,7 @@ var SessionApiUtil = {
     })
   },
 
-  signUp(user,success,error){
+  signUp: function(user,success,error){
     $.ajax({
       url: 'api/user',
       type: 'POST',
@@ -41,7 +41,7 @@ var SessionApiUtil = {
     })
   },
 
-  fetchCurrentUser(success){
+  fetchCurrentUser: function(success){
     $.ajax({
       url: 'api/session',
       type: 'GET',
