@@ -7,14 +7,13 @@ var Router = require('react-router').Router,
     hashHistory = require('react-router').hashHistory,
     Modal = require("react-modal");
 
-var App = require('./components/App'),
-    Home = require('./components/home/Home'),
+var App = require('./components/app'),
+    Home = require('./components/home/home'),
     LogInForm = require('./components/nav/login_form'),
     EventShow = require('./components/event/event_show'),
     EventForm = require('./components/event/event_form'),
     Profile = require('./components/profile/profile'),
     Search = require('./components/search/search')
-
 
 var SessionAction = require('./actions/SessionAction'),
     SessionStore = require('./stores/session'),
