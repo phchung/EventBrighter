@@ -1,6 +1,7 @@
 .map {
   width: auto;
   height: 250px;
+  margin-top: 10px;
 }
 
 .search-page{
@@ -11,17 +12,17 @@
 
 .search-left{
   margin: 20px;
-  margin-left: 150px;
-  width: 260px;
+  margin-left: 50px;
+  width: 250px;
   height: 420px;
 }
 
 .search-right{
-width: 1200px;
-height: 100%;
-display: flex;
-margin-top: 20px;
-flex-wrap: wrap;
+  width: 1200px;
+  height: 100%;
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .search-left > div{

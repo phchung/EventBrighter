@@ -10,7 +10,6 @@ var SessionApiUtil = {
       success,
       error(xhr){
         errors = xhr.responseJSON
-
         error("login",errors)
       }
     })
@@ -35,7 +34,6 @@ var SessionApiUtil = {
       success,
       error(xhr){
         errors = xhr.responseJSON
-
         error("signup",errors)
       }
     })
