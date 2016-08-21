@@ -1,5 +1,5 @@
 var React = require('react'),
-    EventIndexItem = require('../event/event_index_item')
+    EventIndexItem = require('../event/eventIndexItem')
 
 var Form = React.createClass({
 

@@ -1,6 +1,6 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
     Store = require('flux/utils').Store,l
-    SessionConstants = require('../constants/session_constants')
+    SessionConstants = require('../constants/sessionConstants')
 
 _currentUserFetched = false
 _currentUser = {}

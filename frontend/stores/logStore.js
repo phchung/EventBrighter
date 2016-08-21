@@ -1,6 +1,6 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
     Store = require('flux/utils').Store,
-    LogConstants = require('../constants/log_constants')
+    LogConstants = require('../constants/logConstants')
 
 var _modalState = false;
 

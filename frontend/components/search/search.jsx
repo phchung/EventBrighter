@@ -1,8 +1,8 @@
 var React = require('react'),
     Map = require('./map'),
     EventStore = require('../../stores/event'),
-    EventIndexItem = require('../event/event_index_item'),
-    ClientActions = require('../../actions/ClientAction')
+    EventIndexItem = require('../event/eventIndexItem'),
+    clientActions = require('../../actions/clientAction')
 
 
 var Search = React.createClass({

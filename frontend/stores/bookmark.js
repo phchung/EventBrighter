@@ -1,6 +1,6 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
     Store = require('flux/utils').Store,
-    BookmarkConstants = require('../constants/bookmark_constants')
+    BookmarkConstants = require('../constants/bookmarkConstants')
 
 _bookmarks = []
 

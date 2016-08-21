@@ -1,23 +1,23 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
-    SessionConstants = require('../constants/session_constants'),
-    SessionApiUtil = require('../util/SessionApiUtil'),
-    ErrorAction = require('./ErrorAction'),
+    SessionConstants = require('../constants/sessionConstants'),
+    sessionApiUtil = require('../util/sessionApiUtil'),
+    errorAction = require('./errorAction'),
     hashHistory = require('react-router').hashHistory,
     apiUtil = require('../util/apiUtils'),
-    ServerAction = require('./ServerAction')
+    serverAction = require('./serverAction')
 
-var SessionAction = {
+var sessionAction = {
 
   logIn: function(user){
-    SessionApiUtil.logIn(user,SessionAction.receiveCurrentUser,ErrorAction.setErrors)
+    sessionApiUtil.logIn(user,sessionAction.receiveCurrentUser,errorAction.setErrors)
   },
 
   logOut: function(){
-    SessionApiUtil.logOut(SessionAction.removeCurrentUser)
+    sessionApiUtil.logOut(sessionAction.removeCurrentUser)
   },
 
   signUp: function(user){
-    SessionApiUtil.signUp(user,SessionAction.receiveCurrentUser,ErrorAction.setErrors)
+    sessionApiUtil.signUp(user,sessionAction.receiveCurrentUser,errorAction.setErrors)
   },
 
   receiveCurrentUser: function(currentUser){
@@ -34,8 +34,8 @@ var SessionAction = {
       actionType: SessionConstants.LOGOUT
     })
     hashHistory.push('/')
-    ServerAction.clearBookmarks()
+    serverAction.clearBookmarks()
   }
 }
 
-module.exports = SessionAction
+module.exports = sessionAction

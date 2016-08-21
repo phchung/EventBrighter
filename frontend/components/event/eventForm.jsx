@@ -1,8 +1,8 @@
 var React = require('react'),
     SessionStore = require('../../stores/session'),
     ErrorStore = require('../../stores/error'),
-    ErrorAction = require('../../actions/ErrorAction'),
-    ClientAction = require('../../actions/ClientAction'),
+    errorAction = require('../../actions/errorAction'),
+    clientAction = require('../../actions/clientAction'),
     hashHistory = require('react-router').hashHistory
 
 var EventForm = React.createClass({
@@ -52,7 +52,7 @@ var EventForm = React.createClass({
   componentDidMount: function(){
     this.sessionStore = SessionStore.addListener(this.addUser)
     this.errorStore = ErrorStore.addListener(this.forceUpdate.bind(this))
-    ErrorAction.clearErrors()
+    errorAction.clearErrors()
     this.addCloudListener()
     this.setState(this.blankattr)
   },
@@ -92,9 +92,9 @@ var EventForm = React.createClass({
         var lng = results[0].geometry.location.lng()
         that.state.lat = lat
         that.state.lng = lng
-        ClientAction.createEvent({event:Object.assign({},that.state)})
+        clientAction.createEvent({event:Object.assign({},that.state)})
      } else {
-      ClientAction.createEvent({event:Object.assign({},that.state)})
+      clientAction.createEvent({event:Object.assign({},that.state)})
      }
     })
   },

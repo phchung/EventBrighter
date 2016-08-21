@@ -4,9 +4,9 @@ var React = require('react'),
     hashHistory = require('react-router').hashHistory,
     EventStore = require('../../stores/event'),
     ApiUtil = require('../../util/apiUtils'),
-    EventIndexItem = require('../event/event_index_item'),
+    EventIndexItem = require('../event/eventIndexItem'),
     BookmarkStore = require('../../stores/bookmark'),
-    ServerAction = require('../../actions/ServerAction')
+    serverAction = require('../../actions/serverAction')
 
 var Profile = React.createClass({
 
@@ -20,7 +20,7 @@ var Profile = React.createClass({
 
   componentDidMount: function(){
     this.eventListener = EventStore.addListener(this.__eventChanged)
-    ApiUtil.fetchEvents({ticketed_shows: true},ServerAction.fetchUpcomingEvents)
+    ApiUtil.fetchEvents({ticketed_shows: true},serverAction.fetchUpcomingEvents)
     this.setBookmarks()
   },
 

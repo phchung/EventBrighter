@@ -1,10 +1,10 @@
 var React = require('react'),
-    SessionAction = require('../../actions/SessionAction'),
+    sessionAction = require('../../actions/sessionAction'),
     SessionStore = require('../../stores/session'),
     Link = require('react-router').Link,
     hashHistory = require('react-router').hashHistory,
     ErrorStore = require('../../stores/error'),
-    ErrorAction = require('../../actions/ErrorAction'),
+    errorAction = require('../../actions/errorAction'),
     ApiUtil = require('../../util/apiUtils')
 
 
@@ -30,7 +30,7 @@ var LogInForm = React.createClass({
 },
 
   componentDidMount: function(){
-    ErrorAction.clearErrors()
+    errorAction.clearErrors()
     this.sessionStore = SessionStore.addListener(this.__onChange)
     this.errorStore = ErrorStore.addListener(this.forceUpdate.bind(this))
   },
@@ -44,9 +44,9 @@ var LogInForm = React.createClass({
     e.preventDefault()
     const user = {username:this.state.username,password:this.state.password}
     if(this.props.form ==="signup"){
-      SessionAction.signUp(user)
+      sessionAction.signUp(user)
     } else {
-      SessionAction.logIn(user)
+      sessionAction.logIn(user)
     }
     this.setState(this.blankAttr)
   },
@@ -54,7 +54,7 @@ var LogInForm = React.createClass({
   handleDemoAccount: function(e){
     e.preventDefault()
     const user = {username:"DemoUser",password:"password"}
-    SessionAction.logIn(user)
+    sessionAction.logIn(user)
     hashHistory.push('/')
   },
 

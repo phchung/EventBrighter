@@ -1,4 +1,4 @@
-var LogConstants = require('../constants/log_constants'),
+var LogConstants = require('../constants/logConstants'),
     Dispatcher = require('../dispatcher/dispatcher')
 
 module.exports = {

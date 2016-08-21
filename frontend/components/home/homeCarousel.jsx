@@ -1,7 +1,7 @@
 var React = require('react'),
     hashHistory = require('react-router').hashHistory,
     SessionStore = require('../../stores/session'),
-    LogAction = require('../../actions/LogAction')
+    logAction = require('../../actions/logAction')
 
 var HomeCarousel = React.createClass({
 
@@ -14,7 +14,7 @@ var HomeCarousel = React.createClass({
   },
 
   __handleLogin: function(){
-    LogAction.openForm()
+    logAction.openForm()
   },
 
   render: function(){

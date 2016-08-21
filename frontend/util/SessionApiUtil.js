@@ -1,7 +1,7 @@
 var apiUtil = require('./apiUtils'),
-    SessionAction = require('../actions/SessionAction')
+    sessionAction = require('../actions/sessionAction')
 
-var SessionApiUtil = {
+var sessionApiUtil = {
   logIn: function(user,success,error){
     $.ajax({
       url: 'api/session',
@@ -21,7 +21,7 @@ var SessionApiUtil = {
       type: 'DELETE',
       success,
       error: function(){
-        console.log("SessionApiUtil LOGOUT ERROR")
+        console.log("sessionApiUtil LOGOUT ERROR")
       }
     })
   },
@@ -48,4 +48,4 @@ var SessionApiUtil = {
   }
 }
 
-module.exports = SessionApiUtil
+module.exports = sessionApiUtil

@@ -1,6 +1,6 @@
-var LogApiUtil = require('../util/log_api_util.js');
+var LogApiUtil = require('../util/logApiUtil.js');
 
-var LogActions = {
+var logActions = {
   openForm: function() {
     LogApiUtil.openForm();
   },
@@ -10,4 +10,4 @@ var LogActions = {
   },
 }
 
-module.exports = LogActions
+module.exports = logActions

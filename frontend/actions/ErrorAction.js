@@ -1,8 +1,8 @@
 var React = require('react'),
-    ErrorConstants = require('../constants/error_constants'),
+    ErrorConstants = require('../constants/errorConstants'),
     Dispatcher = require('../dispatcher/dispatcher')
 
-var ErrorAction = {
+var errorAction = {
 
   setErrors: function(form,error){
     Dispatcher.dispatch({
@@ -19,4 +19,4 @@ var ErrorAction = {
   }
 }
 
-module.exports = ErrorAction
+module.exports = errorAction

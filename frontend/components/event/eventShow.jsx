@@ -1,6 +1,6 @@
 var React = require('react'),
     EventStore = require('../../stores/event'),
-    ClientAction = require('../../actions/ClientAction'),
+    clientAction = require('../../actions/clientAction'),
     SessionStore = require('../../stores/session'),
     TicketStore = require('../../stores/ticket'),
     Bookmark = require('./bookmark'),
@@ -17,8 +17,8 @@ var EventShow = React.createClass({
   componentDidMount() {
     this.eventListener = EventStore.addListener(this._eventChanged);
     this.ticketListener = TicketStore.addListener(this._ticketChanged);
-    ClientAction.fetchEvents()
-    ClientAction.fetchTickets()
+    clientAction.fetchEvents()
+    clientAction.fetchTickets()
   },
 
   componentWillUnmount(){
@@ -70,7 +70,7 @@ var EventShow = React.createClass({
   createTicket: function(e){
     e.preventDefault()
     const relationship = {show_id:this.state.event.id,purchaser_id:SessionStore.currentUser().id}
-    ClientAction.createTicket({relationship})
+    clientAction.createTicket({relationship})
   },
 
   render: function(){

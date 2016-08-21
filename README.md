@@ -29,7 +29,7 @@ componentDidUpdate: function(prevProps, prevState){
           category: current.category,
           date: current.date
         }
-      ClientActions.fetchEvents(Object.assign({},obj))
+      clientActions.fetchEvents(Object.assign({},obj))
     }
     if(this.props.singleEvent){
       this._addMarker(this.props.event)

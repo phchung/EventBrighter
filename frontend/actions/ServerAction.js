@@ -1,10 +1,10 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
-    EventConstants = require('../constants/event_constants'),
-    BookmarkConstants = require('../constants/bookmark_constants'),
-    TicketConstants = require('../constants/ticket_constants'),
+    EventConstants = require('../constants/eventConstants'),
+    BookmarkConstants = require('../constants/bookmarkConstants'),
+    TicketConstants = require('../constants/ticketConstants'),
     hashHistory = require('react-router').hashHistory
 
-var ServerActions = {
+var serverActions = {
 
   fetchEvents: function(events){
     Dispatcher.dispatch({
@@ -71,4 +71,4 @@ var ServerActions = {
   }
 }
 
-module.exports = ServerActions
+module.exports = serverActions

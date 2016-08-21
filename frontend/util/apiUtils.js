@@ -1,4 +1,4 @@
-var ServerActions = require('../actions/ServerAction')
+var serverActions = require('../actions/serverAction')
 
 var ApiUtils = {
   createEvent: function(event,error){
@@ -8,7 +8,7 @@ var ApiUtils = {
       dataType: 'json',
       data: event,
       success: function(event){
-        ServerActions.createEvent(event)
+        serverActions.createEvent(event)
       },
       error(xhr){
         errors = xhr.responseJSON
@@ -27,7 +27,7 @@ var ApiUtils = {
         if(cb){
           cb(events)
         } else {
-          ServerActions.fetchEvents(events)
+          serverActions.fetchEvents(events)
         }
       }
     })
@@ -40,7 +40,7 @@ var ApiUtils = {
       dataType: 'json',
       data: data,
       success: function(ticket){
-        ServerActions.createTicket(ticket)
+        serverActions.createTicket(ticket)
       }
     })
   },
@@ -52,7 +52,7 @@ var ApiUtils = {
       dataType: 'json',
       data: data,
       success: function(tickets){
-        ServerActions.fetchTickets(tickets)
+        serverActions.fetchTickets(tickets)
       }
     })
   },
@@ -64,7 +64,7 @@ var ApiUtils = {
       dataType: 'json',
       data: {bookmark},
       success: function(bookmark){
-        ServerActions.createBookmark(bookmark)
+        serverActions.createBookmark(bookmark)
       }
     })
   },
@@ -75,7 +75,7 @@ var ApiUtils = {
       method: 'GET',
       dataType: 'json',
       success: function(bookmarks){
-        ServerActions.fetchBookmarks(bookmarks)
+        serverActions.fetchBookmarks(bookmarks)
       }
     })
   },
@@ -87,7 +87,7 @@ var ApiUtils = {
       data: {bookmark},
       dataType: 'json',
       success: function(bookmark){
-        ServerActions.removeBookmark(bookmark)
+        serverActions.removeBookmark(bookmark)
       }
     })
   }

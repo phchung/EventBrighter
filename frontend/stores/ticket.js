@@ -1,6 +1,6 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
     Store = require('flux/utils').Store,
-    TicketConstants = require('../constants/ticket_constants')
+    TicketConstants = require('../constants/ticketConstants')
 
 
 _tickets = {}

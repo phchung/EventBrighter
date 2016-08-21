@@ -1,10 +1,10 @@
 var ApiUtil = require('../util/apiUtils'),
-    ErrorAction = require('./ErrorAction')
+    errorAction = require('./errorAction')
 
-var ClientAction = {
+var clientAction = {
 
   createEvent: function(event){
-    ApiUtil.createEvent(event,ErrorAction.setErrors)
+    ApiUtil.createEvent(event,errorAction.setErrors)
   },
 
   fetchEvents: function(data){
@@ -28,4 +28,4 @@ var ClientAction = {
   }
 }
 
-module.exports = ClientAction;
+module.exports = clientAction;

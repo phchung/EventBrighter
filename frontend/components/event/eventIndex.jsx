@@ -1,5 +1,5 @@
 var React = require('react'),
-    EventIndexItem = require('./event_index_item')
+    EventIndexItem = require('./eventIndexItem')
 
 var EventIndex = React.createClass({
 

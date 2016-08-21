@@ -1,6 +1,6 @@
 var Dispatcher = require('../dispatcher/dispatcher'),
     Store = require('flux/utils').Store,
-    ErrorConstants = require('../constants/error_constants')
+    ErrorConstants = require('../constants/errorConstants')
 
 var ErrorStore = new Store(Dispatcher)
 

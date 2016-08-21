@@ -1,10 +1,10 @@
 var React = require('react'),
     SessionStore = require('../../stores/session'),
-    SessionAction = require('../../actions/SessionAction'),
+    sessionAction = require('../../actions/sessionAction'),
     Modal = require("react-modal"),
-    LoginForm = require('./login_form.jsx'),
+    LoginForm = require('./loginForm.jsx'),
     hashHistory = require('react-router').hashHistory,
-    LogStore = require('../../stores/log_store')
+    LogStore = require('../../stores/logStore')
 
 var modalStyles = {
   content : {
@@ -79,7 +79,7 @@ var Navbar = React.createClass({
 
   handleLogout: function(e){
     e.preventDefault()
-    SessionAction.logOut()
+    sessionAction.logOut()
     this.closeModal()
   },
 

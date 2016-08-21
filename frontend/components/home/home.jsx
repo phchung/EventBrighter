@@ -1,8 +1,8 @@
 var React = require('react'),
-    HomeCarousel = require('./home_carousel'),
-    EventIndex = require('../event/event_index'),
+    HomeCarousel = require('./homeCarousel'),
+    EventIndex = require('../event/eventIndex'),
     EventStore = require('../../stores/event'),
-    ClientAction = require('../../actions/ClientAction')
+    clientAction = require('../../actions/clientAction')
 
 var Home = React.createClass({
 
@@ -14,7 +14,7 @@ var Home = React.createClass({
 
   componentDidMount: function(){
     this.eventListner = EventStore.addListener(this.__eventsChanged)
-    ClientAction.fetchEvents()
+    clientAction.fetchEvents()
   },
 
   componentWillUnmount: function(){

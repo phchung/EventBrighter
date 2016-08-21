@@ -1,5 +1,5 @@
 var React = require('react'),
-    ClientActions = require('../../actions/ClientAction'),
+    clientActions = require('../../actions/clientAction'),
     EventStore = require('../../stores/event'),
     hashHistory = require('react-router').hashHistory
 
@@ -66,7 +66,7 @@ var Map = React.createClass({
           category: that.props.category,
           date: that.props.date
         }
-        ClientActions.fetchEvents(Object.assign({}, obj));
+        clientActions.fetchEvents(Object.assign({}, obj));
       })
     },
 
@@ -89,7 +89,7 @@ var Map = React.createClass({
           category: current.category,
           date: current.date
         }
-      ClientActions.fetchEvents(Object.assign({},obj))
+      clientActions.fetchEvents(Object.assign({},obj))
     }
     if(this.props.singleEvent){
       this._addMarker(this.props.event)

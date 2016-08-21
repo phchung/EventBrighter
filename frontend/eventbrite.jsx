@@ -9,20 +9,20 @@ var Router = require('react-router').Router,
 
 var App = require('./components/app'),
     Home = require('./components/home/home'),
-    LogInForm = require('./components/nav/login_form'),
-    EventShow = require('./components/event/event_show'),
-    EventForm = require('./components/event/event_form'),
+    LogInForm = require('./components/nav/loginForm'),
+    EventShow = require('./components/event/eventShow'),
+    EventForm = require('./components/event/eventForm'),
     Profile = require('./components/profile/profile'),
     Search = require('./components/search/search')
 
-var SessionAction = require('./actions/SessionAction'),
+var sessionAction = require('./actions/sessionAction'),
     SessionStore = require('./stores/session'),
-    ClientAction = require('./actions/ClientAction'),
-    LogAction = require('./actions/LogAction')
+    clientAction = require('./actions/clientAction'),
+    logAction = require('./actions/logAction')
 
 function _ensureLoggedIn(nextstate,replace){
   if(!SessionStore.isUserLoggedIn())
-  { LogAction.openForm()
+  { logAction.openForm()
     replace('/');}
 }
 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Modal.setAppElement(document.body)
 
     if (window.currentUser) {
-    SessionAction.receiveCurrentUser(window.currentUser);
+    sessionAction.receiveCurrentUser(window.currentUser);
   }
     ReactDom.render(
       <Router history={hashHistory}>{routes}</Router>,
