@@ -12,7 +12,7 @@ var EventForm = React.createClass({
   },
 
   contextTypes: {
-        router: React.PropTypes.object.isRequired
+    router: React.PropTypes.object.isRequired
   },
 
   blankattr:{

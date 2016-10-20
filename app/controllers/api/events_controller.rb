@@ -9,7 +9,7 @@ class Api::EventsController < ApplicationController
     if(bounds)
       @events = @events.in_bounds(bounds)
     end
-    
+
     if(date_params && date_params != 'All Dates')
       @events = @events.sort_date(date_params)
     end

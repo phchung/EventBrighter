@@ -23,7 +23,8 @@ var sessionAction = require('./actions/sessionAction'),
 function _ensureLoggedIn(nextstate,replace){
   if(!SessionStore.isUserLoggedIn())
   { logAction.openForm()
-    replace('/');}
+    replace('/');
+  }
 }
 
 var routes = (

@@ -16,6 +16,7 @@ _clearErrors = function(){
   _errors ={}
   _form =""
 }
+
 ErrorStore.__onDispatch = function(payload){
   switch(payload.actionType){
     case ErrorConstants.SET_ERROR:
