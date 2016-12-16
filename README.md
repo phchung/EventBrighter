@@ -50,3 +50,17 @@ EventBrighter allows signed in users to create their own events. The creation fo
 - Recommend events based upon user's history of past/bookmarked events
 - Flexibility in managing user created events
 - Account activation via email
+
+
+Run npm init -y.
+
+Run npm install --save the following packages:
+webpack
+react
+react-dom
+redux
+react-redux
+babel-core
+babel-loader
+babel-preset-react
+babel-preset-es2015
